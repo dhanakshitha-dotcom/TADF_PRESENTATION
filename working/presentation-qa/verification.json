@@ -1,0 +1,15 @@
+{
+  "checks": [
+    {
+      "r": 0,
+      "yield": 0.1923076923076923
+    },
+    {
+      "r": 1000000,
+      "yield": 0.9007187780772693
+    }
+  ],
+  "errors": [],
+  "overflows": [],
+  "controls": "Replay, pause, coupling presets, density preset passed"
+}

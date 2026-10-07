@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-10-03T12:47:29.205182+00:00",
+  "title": "Design System: A better blue pixel \u2014 TADF",
+  "extensions": {
+    "colorMeta": {
+      "bg": {
+        "role": "neutral",
+        "displayName": "Scientific canvas"
+      },
+      "ink": {
+        "role": "neutral",
+        "displayName": "Main text"
+      },
+      "muted": {
+        "role": "neutral",
+        "displayName": "Secondary text"
+      },
+      "cyan": {
+        "role": "primary",
+        "displayName": "Singlet cyan"
+      },
+      "amber": {
+        "role": "secondary",
+        "displayName": "Triplet amber"
+      },
+      "violet": {
+        "role": "tertiary",
+        "displayName": "Terminal violet"
+      },
+      "blue": {
+        "role": "secondary",
+        "displayName": "Additional blue"
+      },
+      "line": {
+        "role": "neutral",
+        "displayName": "Diagram divider"
+      },
+      "viewport": {
+        "role": "neutral",
+        "displayName": "Viewport surround"
+      },
+      "button-border": {
+        "role": "neutral",
+        "displayName": "Control border"
+      },
+      "button-hover": {
+        "role": "neutral",
+        "displayName": "Control hover"
+      },
+      "button-selected": {
+        "role": "neutral",
+        "displayName": "Selected control"
+      },
+      "notes": {
+        "role": "neutral",
+        "displayName": "Presenter notes"
+      },
+      "bar-track": {
+        "role": "neutral",
+        "displayName": "Bar track"
+      }
+    },
+    "typographyMeta": {
+      "headline": {
+        "displayName": "Slide headline",
+        "purpose": "Main slide title."
+      },
+      "equation": {
+        "displayName": "Mathematical expression",
+        "purpose": "Physics equations and rate expressions."
+      }
+    },
+    "shadows": [],
+    "motion": [
+      {
+        "name": "slide-opacity",
+        "value": "opacity .48s ease",
+        "purpose": "Slide entry."
+      },
+      {
+        "name": "slide-translation",
+        "value": "transform .65s cubic-bezier(.16,1,.3,1)",
+        "purpose": "Slide entry from 25px offset."
+      },
+      {
+        "name": "directed-flow",
+        "value": "3s linear infinite",
+        "purpose": "Dashed pathway direction."
+      },
+      {
+        "name": "radiative-reveal",
+        "value": "opacity .7s ease",
+        "purpose": "Presenter-controlled emission trade-off reveal."
+      }
+    ],
+    "breakpoints": []
+  },
+  "components": [
+    {
+      "name": "Control button",
+      "kind": "button",
+      "refersTo": "button",
+      "description": "Presenter action and model preset.",
+      "html": "<button class=\"ds-button\">Replay pulse</button>",
+      "css": ".ds-button{background:transparent;border:1px solid #657890;border-radius:5px;color:var(--ink,#eff5ff);font-family:\"Avenir Next\", Avenir, \"Segoe UI\", sans-serif;font-size:17px;padding:10px 17px;cursor:pointer;transition:background .2s,border-color .2s}.ds-button:hover{background:#1b2b42;border-color:var(--cyan,#62e7f4)}.ds-button:focus-visible{outline:3px solid var(--cyan,#62e7f4);outline-offset:5px}.ds-button[aria-pressed=true]{background:#183745;border-color:var(--cyan,#62e7f4);color:var(--cyan,#62e7f4)}"
+    },
+    {
+      "name": "Selected preset",
+      "kind": "button",
+      "refersTo": "button-selected",
+      "description": "Current model preset.",
+      "html": "<button class=\"ds-button\" aria-pressed=\"true\">Strong coupling</button>",
+      "css": ".ds-button{background:transparent;border:1px solid #657890;border-radius:5px;color:var(--ink,#eff5ff);font-family:\"Avenir Next\", Avenir, \"Segoe UI\", sans-serif;font-size:17px;padding:10px 17px;cursor:pointer;transition:background .2s,border-color .2s}.ds-button:hover{background:#1b2b42;border-color:var(--cyan,#62e7f4)}.ds-button:focus-visible{outline:3px solid var(--cyan,#62e7f4);outline-offset:5px}.ds-button[aria-pressed=true]{background:#183745;border-color:var(--cyan,#62e7f4);color:var(--cyan,#62e7f4)}"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "navigation",
+      "description": "Compact presenter navigation; opacity increases on hover or focus.",
+      "html": "<nav class=\"ds-nav\"><button class=\"ds-button\">Previous</button><span>4 / 15</span><button class=\"ds-button\">Next</button></nav>",
+      "css": ".ds-button{background:transparent;border:1px solid #657890;border-radius:5px;color:var(--ink,#eff5ff);font-family:\"Avenir Next\", Avenir, \"Segoe UI\", sans-serif;font-size:17px;padding:10px 17px;cursor:pointer;transition:background .2s,border-color .2s}.ds-button:hover{background:#1b2b42;border-color:var(--cyan,#62e7f4)}.ds-button:focus-visible{outline:3px solid var(--cyan,#62e7f4);outline-offset:5px}.ds-button[aria-pressed=true]{background:#183745;border-color:var(--cyan,#62e7f4);color:var(--cyan,#62e7f4)}.ds-nav{display:flex;gap:8px;align-items:center;background:var(--bg,#070c17);color:var(--ink,#eff5ff);font-family:\"Avenir Next\", Avenir, \"Segoe UI\", sans-serif;padding:5px 10px;border-radius:8px;opacity:.22;transition:opacity .2s}.ds-nav:hover,.ds-nav:focus-within{opacity:1}.ds-nav .ds-button{font-size:13px;padding:5px 10px}.ds-nav span{font-size:13px;min-width:58px;text-align:center}"
+    },
+    {
+      "name": "Model range",
+      "kind": "input",
+      "description": "Native model parameter slider.",
+      "html": "<input class=\"ds-range\" type=\"range\" min=\"0\" max=\"1\" step=\"0.01\" value=\"0.8\" aria-label=\"Overlap proxy\">",
+      "css": ".ds-range{accent-color:var(--cyan,#62e7f4);width:210px;cursor:pointer}.ds-range:focus-visible{outline:3px solid var(--cyan,#62e7f4);outline-offset:5px}"
+    },
+    {
+      "name": "Adoption criterion",
+      "kind": "custom",
+      "description": "Ruled conclusion row.",
+      "html": "<div class=\"ds-criterion\"><span>01</span><span>Lower power at the required output</span></div>",
+      "css": ".ds-criterion{display:flex;align-items:center;gap:30px;font-family:\"Avenir Next\", Avenir, \"Segoe UI\", sans-serif;font-size:35px;color:var(--ink,#eff5ff);border-top:1px solid var(--line,#34465f);padding:24px 0}.ds-criterion span:first-child{color:var(--cyan,#62e7f4);font-size:26px;width:38px}"
+    }
+  ],
+  "narrative": {
+    "northStar": "Scientific canvas",
+    "overview": "The implemented presentation places physics diagrams, equations and interactive plots on a dark, spacious canvas. Its futuristic character comes from restrained luminous accents and smooth motion that explains pathways, population changes and staged conclusions.\n\nThis documents the current offline HTML presentation, not a general website theme. The audience is Senior Honours physics students; projected readability and the distinction between illustrative models, experimental data and commercial evidence shape the presentation.",
+    "keyCharacteristics": [
+      "Dark canvas with bright, semantically consistent physics accents.",
+      "Large slide headlines and separate mathematical typography.",
+      "Inline charts, directed flow animation and presenter-controlled reveals.",
+      "Fixed aspect ratio with proportional viewport scaling."
+    ],
+    "rules": [],
+    "dos": [
+      "Do preserve the semantic physics accents and explicit series labels.",
+      "Do retain the centered 16:9 stage and large projected typography.",
+      "Do keep model assumptions, measured evidence and sources visibly identified.",
+      "Do use motion to explain pathways and allow presenter control."
+    ],
+    "donts": [
+      "Don't rely on installed fonts rendering identically across operating systems.",
+      "Don't describe an illustrative animation or model curve as measured experimental data."
+    ]
+  }
+}
