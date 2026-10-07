@@ -1,0 +1,90 @@
+<!--meta {"file":"06-four-doors","num":6,"acc":"trip","eyebrow":"II · Spin","title":"Four doors: <em>1 in 4</em> leads to the singlet room","src":"Simulation: random spin formation, equal weighting; a statistical model, not a measurement","interactive":true} -->
+<style>
+.door{width:150px;height:200px;border-radius:75px 75px 10px 10px;border:2px solid var(--line);position:relative;display:flex;flex-direction:column;align-items:center;justify-content:flex-end;padding-bottom:16px;background:rgba(11,23,41,.75);transition:transform .15s,box-shadow .25s}
+.door::after{content:"";position:absolute;right:24px;top:118px;width:12px;height:12px;border-radius:50%;background:currentColor;opacity:.85}
+.door.ds{color:var(--sing);border-color:rgba(98,231,244,.65)}
+.door.dt{color:var(--trip);border-color:rgba(255,192,113,.5)}
+.door.hit{transform:translateY(-10px);box-shadow:0 0 40px currentColor}
+.door .n{font:400 52px/1 'Instrument Serif',Georgia,serif}
+.door .l{font:500 15px/1.2 'Geist Mono',ui-monospace,monospace;letter-spacing:.1em;color:var(--mut)}
+.track{height:16px;border-radius:8px;background:#16253d;position:relative}
+.fill{height:100%;border-radius:8px}
+.mark{position:absolute;top:-5px;width:2px;height:26px;background:var(--ink);opacity:.8}
+</style>
+<div class="row" style="height:100%;gap:56px">
+  <div class="col" style="width:520px;gap:22px">
+    <p class="lead rv">Throw excitons at the doors. Most end up in the <span class="c-t">triplet</span> room.</p>
+    <div class="eq rv" style="--d:.15s"><tex>P(S)=\tfrac{1}{4},\qquad P(T)=\tfrac{3}{4}</tex></div>
+    <div class="row g12 rv" style="--d:.3s;flex-wrap:wrap">
+      <button class="btn go" onClick="{{throw100}}">Throw 100</button>
+      <button class="btn" onClick="{{throwMany}}">Throw 10 000</button>
+      <button class="btn" onClick="{{reset}}">Reset</button>
+    </div>
+    <div class="col g16 rv" style="--d:.4s">
+      <div class="col g12">
+        <div class="row" style="justify-content:space-between;align-items:baseline"><span class="lab c-s">Singlets</span><span class="serif" style="font-size:36px"><span class="c-s">{{sPct}}%</span> <span class="c-d" style="font-size:24px">({{sCount}})</span></span></div>
+        <div class="track"><div class="fill" style="width: {{sPct}}%;background:var(--sing)"></div><div class="mark" style="left:25%"></div></div>
+      </div>
+      <div class="col g12">
+        <div class="row" style="justify-content:space-between;align-items:baseline"><span class="lab c-t">Triplets</span><span class="serif" style="font-size:36px"><span class="c-t">{{tPct}}%</span> <span class="c-d" style="font-size:24px">({{tCount}})</span></span></div>
+        <div class="track"><div class="fill" style="width: {{tPct}}%;background:var(--trip)"></div><div class="mark" style="left:75%"></div></div>
+      </div>
+      <p class="cap">White ticks: expected 25 : 75. Small samples scatter around it.</p>
+    </div>
+  </div>
+  <div class="col" style="flex:1;gap:30px">
+    <div class="row" style="justify-content:space-between">
+      <sc-for list="{{doors}}" as="d" hint-placeholder-count="4"><div class="{{d.cls}}"><span class="n">{{d.count}}</span><span class="l">{{d.label}}</span></div></sc-for>
+    </div>
+    <div class="row" style="gap:36px;align-items:center">
+      <div class="dots" style="width:300px;flex:none;gap:8px"><sc-for list="{{dots}}" as="x" hint-placeholder-count="100"><div class="{{x}}"></div></sc-for></div>
+      <div class="col g12"><span class="chip"><i class="dot-s"></i>one singlet door</span><span class="chip"><i class="dot-t"></i>three triplet doors</span><p class="p" style="font-size:22px;margin-top:6px">{{status}}</p></div>
+    </div>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  componentWillUnmount() { clearInterval(this._t); }
+  sample(n, seed) {
+    let s = seed; const hits = [0, 0, 0, 0]; const seq = [];
+    for (let i = 0; i < n; i++) { s = (s * 48271) % 2147483647; const d = Math.floor((s / 2147483647) * 4); hits[d]++; seq.push(d); }
+    return { hits, seq };
+  }
+  start() {
+    clearInterval(this._t);
+    this.setState({ hits: [0, 0, 0, 0], seq: [], last: -1, mode: 'run' });
+    let k = 0;
+    this._t = setInterval(() => {
+      const h = (this.state.hits || [0, 0, 0, 0]).slice(); const seq = (this.state.seq || []).slice();
+      const d = Math.floor(Math.random() * 4); h[d]++; seq.push(d); k++;
+      this.setState({ hits: h, seq, last: d, mode: k >= 100 ? 'done' : 'run' });
+      if (k >= 100) { clearInterval(this._t); setTimeout(() => this.setState({ last: -1 }), 200); }
+    }, 45);
+  }
+  many() {
+    clearInterval(this._t);
+    const h = [0, 0, 0, 0];
+    for (let i = 0; i < 10000; i++) h[Math.floor(Math.random() * 4)]++;
+    const ns = Math.round(100 * h[0] / 10000); const seq = [];
+    for (let i = 0; i < 100; i++) seq.push(i < ns ? 0 : 1);
+    this.setState({ hits: h, seq, last: -1, mode: 'many' });
+  }
+  renderVals() {
+    let st = this.state || {};
+    if (!st.hits) { const smp = this.sample(100, 11); st = { hits: smp.hits, seq: smp.seq, last: -1, mode: 'sample' }; }
+    const h = st.hits; const n = h[0] + h[1] + h[2] + h[3];
+    const s = h[0]; const t = n - s;
+    const pct = (x) => (n ? (100 * x / n).toFixed(1) : '0.0');
+    const labels = ['Singlet', 'Triplet m=+1', 'Triplet m=0', 'Triplet m=−1'];
+    const doors = [0, 1, 2, 3].map((i) => ({ cls: 'door ' + (i === 0 ? 'ds' : 'dt') + (st.last === i ? ' hit' : ''), count: h[i], label: labels[i] }));
+    const seq = st.seq || [];
+    const dots = Array.from({ length: 100 }, (_, i) => (i < seq.length ? (seq[i] === 0 ? 'dot d-s' : 'dot d-t') : 'dot'));
+    const status = st.mode === 'many' ? '10 000 throws: the ratio settles close to 25 : 75. The dots show it per 100.' : (st.mode === 'run' ? 'Throwing…' : (st.mode === 'done' ? '100 throws. Press again: the split changes a little each time.' : 'A sample of 100 throws. Press Throw 100 to run your own.'));
+    return {
+      doors, dots, status, sCount: s, tCount: t, sPct: pct(s), tPct: pct(t),
+      throw100: () => this.start(), throwMany: () => this.many(),
+      reset: () => { clearInterval(this._t); this.setState({ hits: [0, 0, 0, 0], seq: [], last: -1, mode: 'idle' }); },
+    };
+  }
+}
+</script>

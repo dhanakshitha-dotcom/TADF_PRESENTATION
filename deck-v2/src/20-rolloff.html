@@ -1,0 +1,69 @@
+<!--meta {"file":"20-rolloff","num":20,"acc":"trip","eyebrow":"VI · Losses","title":"Drive it harder: <em>efficiency roll-off</em>","src":"Model: illustrative kinetics, not fitted. Data: Kim et al., Nat. Commun. 11, 1765 (2020), Table 2, doi:10.1038/s41467-020-15558-5 (two reported values re-plotted, no fitted curve, not a lifetime)","interactive":true} -->
+<div class="row" style="height:100%;gap:36px">
+  <div class="col" style="width:430px;gap:16px">
+    <p class="lead rv" style="font-size:27px">Long-lived <span class="c-t">triplets</span> pile up and collide. <b style="font-weight:500">Fast RISC lowers the pile.</b></p>
+    <div class="eq rv" style="--d:.12s;font-size:27px;flex-direction:column;gap:2px;padding:12px 16px"><tex d>n_T\approx G_T\,\tau_T</tex><tex d>R_{\mathrm{TTA}}\propto n_T^{2}</tex></div>
+    <div class="ctl rv" style="--d:.22s"><span class="lab">Generation rate G <b>{{gTxt}}</b></span><input type="range" min="18" max="24" step="0.05" value="{{logG}}" onInput="{{onG}}" aria-label="Logarithm of generation rate"><div class="row" style="justify-content:space-between"><span class="cap">low drive</span><span class="cap">high drive</span></div></div>
+    <div class="row g12 rv" style="--d:.3s"><button class="btn" onClick="{{pLow}}">Low G</button><button class="btn" onClick="{{pHigh}}">High G</button></div>
+    <div class="row g24 rv" style="--d:.4s">
+      <div class="read c-t" style="font-size:52px">{{slow}}%<small>slower RISC</small></div>
+      <div class="read c-s" style="font-size:52px">{{fast}}%<small>faster RISC</small></div>
+    </div>
+    <p class="cap rv" style="--d:.5s">Net quadratic triplet quenching, not “all TTA”: triplet fusion can also make useful singlets. The axis is generation rate, not display brightness.</p>
+  </div>
+  <div class="col" style="flex:1;gap:10px">
+    <div class="row" style="gap:16px;flex:1">
+      <div class="panel" style="flex:1.1;padding:10px 12px">
+        <svg viewBox="0 0 470 440" width="100%" role="img" aria-label="Model external efficiency against generation rate for slower and faster RISC">
+          <text x="62" y="20" class="axl">Model: external photon yield (%)</text>
+          <g stroke="#26364f"><line x1="62" y1="40" x2="452" y2="40"/><line x1="62" y1="120" x2="452" y2="120"/><line x1="62" y1="200" x2="452" y2="200"/><line x1="62" y1="280" x2="452" y2="280"/><line x1="62" y1="360" x2="452" y2="360" stroke="#3a4d6b"/></g>
+          <g class="ax" text-anchor="end"><text x="54" y="364">0</text><text x="54" y="284">5</text><text x="54" y="204">10</text><text x="54" y="124">15</text><text x="54" y="44">20</text></g>
+          <g class="ax" text-anchor="middle"><text x="62" y="384">10¹⁸</text><text x="192" y="384">10²⁰</text><text x="322" y="384">10²²</text><text x="452" y="384">10²⁴</text></g>
+          <text x="257" y="418" text-anchor="middle" class="axl">generation rate G (cm⁻³ s⁻¹)</text>
+          <path d="{{cSlow}}" fill="none" stroke="#ffc071" stroke-width="4"/>
+          <path d="{{cFast}}" fill="none" stroke="#62e7f4" stroke-width="4"/>
+          <line x1="{{cx}}" y1="40" x2="{{cx}}" y2="360" stroke="#adbbd2" stroke-dasharray="3 6"/>
+          <circle cx="{{cx}}" cy="{{ySlow}}" r="7" fill="#ffc071"/><circle cx="{{cx}}" cy="{{yFast}}" r="7" fill="#62e7f4"/>
+          <text x="72" y="326" class="sv" font-size="14" fill="#62e7f4">faster RISC: 2×10⁶ s⁻¹</text><text x="72" y="346" class="sv" font-size="14" fill="#ffc071">slower RISC: 2×10⁴ s⁻¹</text>
+        </svg>
+      </div>
+      <div class="panel" style="flex:.9;padding:10px 12px">
+        <svg viewBox="0 0 400 440" width="100%" role="img" aria-label="Experimental external quantum efficiency at two luminances for TMCz-BO">
+          <text x="58" y="20" class="axl">Experiment: measured EQE (%)</text>
+          <g stroke="#26364f"><line x1="58" y1="40" x2="380" y2="40"/><line x1="58" y1="100" x2="380" y2="100"/><line x1="58" y1="220" x2="380" y2="220"/><line x1="58" y1="340" x2="380" y2="340" stroke="#3a4d6b"/></g>
+          <g class="ax" text-anchor="end"><text x="50" y="344">0</text><text x="50" y="224">10</text><text x="50" y="104">20</text><text x="50" y="44">25</text></g>
+          <g class="ax" text-anchor="middle"><text x="130" y="364">100</text><text x="310" y="364">1000</text></g>
+          <text x="219" y="398" text-anchor="middle" class="axl">luminance (cd m⁻², log)</text>
+          <circle cx="130" cy="{{e1}}" r="9" fill="#c9a8ff"/><text x="146" y="{{e1t}}" class="sv" font-size="17" font-weight="600" fill="#c9a8ff">20.2%</text>
+          <circle cx="310" cy="{{e2}}" r="9" fill="#c9a8ff"/><text x="294" y="{{e2t}}" text-anchor="end" class="sv" font-size="17" font-weight="600" fill="#c9a8ff">17.4%</text>
+          <text x="58" y="424" class="sv" font-size="13" fill="#8394b0">TMCz-BO · reported values, no fitted curve</text>
+        </svg>
+      </div>
+    </div>
+    <p class="cap">Roll-off shows efficiency under load. It does not establish operational lifetime, which needs a separate luminance-decay measurement.</p>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  density(g, r, beta) {
+    beta = beta ?? 1e-12; const KS = 6.5e7, D = r + 1e4 - 1e7 * r / KS, B = (0.75 + 1e7 / (4 * KS)) * g;
+    const T = 2 * B / (D + Math.sqrt(D * D + 4 * beta * B)); const S = (g / 4 + r * T) / KS;
+    return 0.2 * 5e7 * S / g;
+  }
+  renderVals() {
+    const lg = Math.max(18, Math.min(24, this.state.lg ?? 23));
+    const X = (v) => 62 + (v - 18) / 6 * 390; const Y = (y) => 360 - y * 1600;
+    const path = (r) => { let d = ''; for (let i = 0; i <= 120; i++) { const v = 18 + i * 6 / 120; d += (i ? 'L' : 'M') + X(v).toFixed(1) + ' ' + Y(this.density(10 ** v, r)).toFixed(1) + ' '; } return d.trim(); };
+    if (!this._p) this._p = { cSlow: path(2e4), cFast: path(2e6) };
+    const a = this.density(10 ** lg, 2e4) * 100, b = this.density(10 ** lg, 2e6) * 100;
+    const YE = (v) => 340 - v * 12;
+    return {
+      ...this._p, cx: X(lg), ySlow: Y(a / 100), yFast: Y(b / 100),
+      slow: a.toFixed(1), fast: b.toFixed(1), gTxt: '10' + String(lg.toFixed(1).replace(/\.0$/, '')).split('').map((ch) => ({ '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '.': '·' }[ch])).join(''), logG: lg,
+      e1: YE(20.2), e1t: YE(20.2) - 16, e2: YE(17.4), e2t: YE(17.4) + 32,
+      onG: (e) => this.setState({ lg: parseFloat(e.target.value) }),
+      pLow: () => this.setState({ lg: 19 }), pHigh: () => this.setState({ lg: 23 }),
+    };
+  }
+}
+</script>

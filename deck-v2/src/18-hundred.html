@@ -1,0 +1,39 @@
+<!--meta {"file":"18-hundred","num":18,"acc":"sing","eyebrow":"VI · Efficiency","title":"Start with <em>one hundred</em> excitons","src":"Ideal counting model: every S₁ emits; η_T is the fraction of triplets recovered through RISC. Teaching limit, not a measured device efficiency","interactive":true} -->
+<style>
+.dot.rc{background:var(--sing);box-shadow:0 0 0 3px rgba(255,192,113,.8),0 0 16px rgba(98,231,244,.6)}
+.dot.lo{background:#4d4030}
+.trk{height:18px;border-radius:9px;background:#16253d;overflow:hidden}
+.fl{height:100%;border-radius:9px;transition:width .2s}
+</style>
+<div class="row" style="height:100%;gap:56px">
+  <div class="col" style="width:540px;gap:20px">
+    <p class="lead rv" style="font-size:29px"><span class="c-s">25</span> become singlets, <span class="c-t">75</span> become triplets. A good TADF emitter <b style="font-weight:500">recycles</b> the triplets.</p>
+    <div class="eq rv" style="--d:.15s;font-size:32px"><tex d>\mathrm{IQE}\approx 0.25+0.75\,\eta_T</tex></div>
+    <div class="ctl rv" style="--d:.25s"><span class="lab">Triplets recovered by RISC <span style="text-transform:none">(η<sub>T</sub>)</span> <b>{{etaTxt}}%</b></span><input type="range" min="0" max="100" step="1" value="{{etaRaw}}" onInput="{{onEta}}" aria-label="Fraction of triplets recovered"></div>
+    <div class="row g12 rv" style="--d:.35s;flex-wrap:wrap"><button class="btn" onClick="{{p0}}">No RISC · 0%</button><button class="btn" onClick="{{p90}}">Good TADF · 90%</button><button class="btn" onClick="{{p100}}">Ideal · 100%</button></div>
+    <div class="col g16 rv" style="--d:.45s">
+      <div class="col g12"><div class="row" style="justify-content:space-between;align-items:baseline"><span class="lab c-s">Internal quantum efficiency</span><span class="serif c-s" style="font-size:52px">{{iqe}}%</span></div><div class="trk"><div class="fl" style="width: {{iqe}}%;background:var(--sing)"></div></div></div>
+      <div class="row g12" style="align-items:center"><span class="lab">Fluorescent reference</span><div class="trk" style="flex:1"><div class="fl" style="width:25%;background:#6b7a92"></div></div><span class="sv" style="font-size:17px;color:var(--mut)">25%</span></div>
+    </div>
+  </div>
+  <div class="col" style="flex:1;align-items:center;gap:18px">
+    <div class="dots" style="width:520px;gap:11px"><sc-for list="{{dots}}" as="x" hint-placeholder-count="100"><div class="{{x}}"></div></sc-for></div>
+    <div class="row g12" style="flex-wrap:wrap;justify-content:center"><span class="chip"><i class="dot-s"></i>singlet, emits</span><span class="chip" style="color:var(--ink)"><i style="background:var(--sing);box-shadow:0 0 0 2px var(--trip)"></i>triplet recovered</span><span class="chip"><i style="background:#4d4030"></i>triplet lost</span></div>
+    <p class="p" style="font-size:23px;text-align:center">{{photons}} of 100 excitons produce a photon.</p>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    const eta = Math.max(0, Math.min(1, this.state.eta ?? 0.9));
+    const rec = Math.round(75 * eta);
+    const dots = Array.from({ length: 100 }, (_, i) => (i < 25 ? 'dot d-s' : (i - 25 < rec ? 'dot rc' : 'dot lo')));
+    const iqe = 25 + 75 * eta;
+    const set = (v) => () => this.setState({ eta: v });
+    return {
+      dots, etaTxt: Math.round(eta * 100), etaRaw: Math.round(eta * 100), iqe: iqe.toFixed(0), photons: Math.round(iqe),
+      onEta: (e) => this.setState({ eta: parseFloat(e.target.value) / 100 }), p0: set(0), p90: set(0.9), p100: set(1),
+    };
+  }
+}
+</script>

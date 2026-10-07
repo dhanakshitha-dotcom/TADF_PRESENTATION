@@ -1,0 +1,90 @@
+<!--meta {"file":"11-thermal","num":11,"acc":"trip","eyebrow":"IV · The TADF idea","title":"<em>Thermally</em> activated: a wall or a small step?","src":"Boltzmann factor e^(−ΔE/k_BT): schematic accessibility of the uphill step. Real RISC rates also need coupling (see slides 15–16)","interactive":true} -->
+<style>
+.kd{aspect-ratio:1;border-radius:50%;background:var(--trip);opacity:.45;transition:background .25s,opacity .25s,box-shadow .25s}
+.kd.up{background:var(--sing);opacity:1;box-shadow:0 0 10px rgba(98,231,244,.7)}
+.kg{display:grid;grid-template-columns:repeat(25,minmax(0,1fr));gap:6px;width:100%}
+</style>
+<div class="row" style="height:100%;gap:44px">
+  <div class="col" style="width:520px;gap:20px">
+    <p class="lead rv">Usually T₁ lies <span class="c-t">below</span> S₁. The exciton must climb ΔE<sub>ST</sub> using heat from its surroundings.</p>
+    <div class="eq rv" style="--d:.12s;font-size:28px;padding:12px 20px;flex-direction:column;gap:2px"><tex d>\Delta E_{ST}=E(S_1)-E(T_1)</tex><tex d>p\sim e^{-\Delta E_{ST}/k_{B}T}</tex></div>
+    <div class="col g16 rv" style="--d:.25s">
+      <div class="ctl"><span class="lab">Singlet–triplet gap <b>{{gapTxt}} eV</b></span><input type="range" min="0" max="0.4" step="0.005" value="{{gapRaw}}" onInput="{{onGap}}" aria-label="Singlet triplet gap in electronvolts"><div class="row" style="justify-content:space-between"><span class="cap">a small step</span><span class="cap">a three-metre wall</span></div></div>
+      <div class="ctl"><span class="lab">Temperature <b>{{Ttxt}} K</b></span><input type="range" min="100" max="400" step="5" value="{{Traw}}" onInput="{{onT}}" aria-label="Temperature in kelvin"></div>
+    </div>
+    <div class="row g32 rv" style="--d:.4s;align-items:flex-end">
+      <div class="read c-s">{{fPct}}%<small>Boltzmann factor</small></div>
+      <div class="read" style="font-size:44px;color:var(--mut)">{{ratio}}<small>ΔE / k<sub>B</sub>T</small></div>
+      <div class="read" style="font-size:44px;color:var(--mut)">{{kT}}<small>k<sub>B</sub>T, meV</small></div>
+    </div>
+  </div>
+  <div class="col" style="flex:1;gap:16px">
+    <div class="row" style="gap:20px;height:360px">
+      <div class="panel" style="flex:1;padding:12px 14px">
+        <svg viewBox="0 0 380 300" width="100%" height="100%" role="img" aria-label="A wall whose height is the singlet-triplet gap, beside a bar showing thermal energy">
+          <!-- ground reference (T1) at y=270 ; S1 at y=270-600*gap -->
+          <line x1="20" y1="270" x2="360" y2="270" stroke="#ffc071" stroke-width="4"/>
+          <text x="20" y="292" class="sv" font-size="14" fill="#ffc071">T₁</text>
+          <line x1="150" y1="{{ys1}}" x2="360" y2="{{ys1}}" stroke="#62e7f4" stroke-width="4"/>
+          <text x="364" y="{{ys1t}}" text-anchor="end" class="sv" font-size="14" fill="#62e7f4">S₁</text>
+          <rect x="150" y="{{ys1}}" width="46" height="{{wallH}}" fill="rgba(255,192,113,.14)" stroke="#ffc071" stroke-width="2" stroke-dasharray="6 5"/>
+          <circle cx="70" cy="252" r="14" fill="#ffc071"/>
+          <path d="M92 252 H140" stroke="#ffc071" stroke-width="3" stroke-dasharray="4 6" fill="none"/>
+          <!-- thermal energy bar -->
+          <rect x="256" y="{{ykt}}" width="34" height="{{kth}}" rx="3" fill="#9dbdff"/>
+          <text x="273" y="{{yktl}}" text-anchor="middle" class="sv" font-size="14" fill="#9dbdff">k<tspan font-size="11" dy="3">B</tspan><tspan dy="-3">T</tspan></text>
+          <text x="173" y="{{ywl}}" text-anchor="middle" class="sv" font-size="14" fill="#ffc071">ΔE</text>
+          <!-- bar scale -->
+          <text x="20" y="22" class="sv" font-size="13" fill="#8394b0">drawn to scale: 650 px per eV</text>
+        </svg>
+      </div>
+      <div class="panel" style="flex:1;padding:12px 14px">
+        <svg viewBox="0 0 380 300" width="100%" height="100%" role="img" aria-label="Boltzmann factor against singlet triplet gap">
+          <text x="46" y="20" class="ax">Boltzmann factor</text>
+          <line x1="46" y1="30" x2="46" y2="250" stroke="#26364f"/><line x1="46" y1="250" x2="360" y2="250" stroke="#26364f"/>
+          <text x="40" y="254" text-anchor="end" class="ax">0</text><text x="40" y="34" text-anchor="end" class="ax">1</text>
+          <text x="46" y="274" text-anchor="middle" class="ax">0</text><text x="203" y="274" text-anchor="middle" class="ax">0.2</text><text x="372" y="274" text-anchor="end" class="ax">0.4 eV</text>
+          <path d="{{curveRef}}" fill="none" stroke="#8394b0" stroke-width="2" stroke-dasharray="5 6"/>
+          <path d="{{curve}}" fill="none" stroke="#62e7f4" stroke-width="4"/>
+          <line x1="{{mx}}" y1="{{my}}" x2="{{mx}}" y2="250" stroke="#adbbd2" stroke-dasharray="3 6"/>
+          <circle cx="{{mx}}" cy="{{my}}" r="8" fill="#62e7f4"/>
+          <text x="352" y="50" text-anchor="end" class="ax">dashed: 300 K</text>
+        </svg>
+      </div>
+    </div>
+    <div class="panel" style="padding:16px 20px">
+      <div class="row" style="justify-content:space-between;align-items:center;margin-bottom:12px"><span class="lab">100 thermal kicks · <span class="c-s">{{nUp}} climbed</span> to S₁</span><button class="btn" onClick="{{roll}}">Roll 100 kicks</button></div>
+      <div class="kg"><sc-for list="{{kicks}}" as="k" hint-placeholder-count="100"><div class="{{k}}"></div></sc-for></div>
+    </div>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  f(gap, T) { return Math.exp(-gap / (8.617333e-5 * T)); }
+  renderVals() {
+    const st = this.state || {};
+    const gap = st.gap ?? 0.10; const T = st.T ?? 300;
+    const kT = 8.617333e-5 * T; const f = this.f(gap, T);
+    const key = gap + '|' + T;
+    let kicks;
+    if (st.rollKey === key && st.roll) kicks = st.roll;
+    else { const n = Math.round(f * 100); kicks = Array.from({ length: 100 }, (_, i) => (i < n ? 1 : 0)); }
+    const nUp = kicks.reduce((a, b) => a + b, 0);
+    const X = (g) => 46 + g / 0.4 * 314; const Y = (v) => 250 - v * 220;
+    const path = (TT) => { let d = ''; for (let i = 0; i <= 80; i++) { const g = i * 0.4 / 80; d += (i ? 'L' : 'M') + X(g).toFixed(1) + ' ' + Y(this.f(g, TT)).toFixed(1) + ' '; } return d.trim(); };
+    const ys1 = 270 - 650 * gap; const wallH = 650 * gap;
+    const kth = Math.max(2, 650 * kT);
+    return {
+      gapRaw: gap, gapTxt: gap.toFixed(3), Traw: T, Ttxt: Math.round(T),
+      fPct: f >= 0.1 ? (100 * f).toFixed(0) : (100 * f).toFixed(1), ratio: (gap / kT).toFixed(1), kT: (kT * 1000).toFixed(1),
+      ys1, ys1t: Math.max(16, ys1 - 6), wallH, ywl: ys1 + wallH / 2 + 5,
+      ykt: 270 - kth, kth, yktl: 270 - kth - 8,
+      curve: path(T), curveRef: path(300), mx: X(gap), my: Y(f),
+      kicks: kicks.map((v) => (v ? 'kd up' : 'kd')), nUp,
+      onGap: (e) => this.setState({ gap: parseFloat(e.target.value) }),
+      onT: (e) => this.setState({ T: parseFloat(e.target.value) }),
+      roll: () => { const r = Array.from({ length: 100 }, () => (Math.random() < f ? 1 : 0)); this.setState({ roll: r, rollKey: key }); },
+    };
+  }
+}
+</script>

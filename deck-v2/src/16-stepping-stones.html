@@ -1,0 +1,62 @@
+<!--meta {"file":"16-stepping-stones","num":16,"acc":"spin","eyebrow":"V · Coupling","title":"Same gap, <em>different rate</em>","src":"Schematic coupling expression (cf. Etherington et al., Nat. Commun. 7, 13680 (2016)). Plot: illustrative rates, fixed E_a = 0.10 eV, T = 300 K","interactive":true} -->
+<div class="row" style="height:100%;gap:40px">
+  <div class="col" style="width:560px;gap:16px">
+    <p class="lead rv" style="font-size:28px">RISC need not be one huge leap. It can use <span class="c-p">stepping stones</span>: vibrations and a nearby local triplet.</p>
+    <svg class="rv" style="--d:.15s" viewBox="0 0 520 250" width="520" height="250" role="img" aria-label="Stepping-stone route: T1 couples vibronically to a nearby local triplet, which couples by spin-orbit coupling to S1">
+      <defs><marker id="p1" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0 0 L14 7 L0 14 Z" fill="#c9a8ff"/></marker></defs>
+      <line x1="20" y1="60" x2="150" y2="60" stroke="#62e7f4" stroke-width="5" stroke-linecap="round"/><text x="20" y="46" class="sv" font-size="18" font-weight="600" fill="#62e7f4">S₁ (CT)</text>
+      <line x1="195" y1="110" x2="325" y2="110" stroke="#ffc071" stroke-width="5" stroke-linecap="round" stroke-dasharray="1 0"/><text x="195" y="96" class="sv" font-size="18" font-weight="600" fill="#ffc071">³LE</text>
+      <line x1="370" y1="170" x2="500" y2="170" stroke="#ffc071" stroke-width="5" stroke-linecap="round"/><text x="370" y="156" class="sv" font-size="18" font-weight="600" fill="#ffc071">T₁ (CT)</text>
+      <path class="flowr" d="M376 178 C340 200 300 160 330 118" stroke="#c9a8ff" stroke-width="3.5" fill="none" marker-end="url(#p1)"/>
+      <text x="330" y="226" class="sv" font-size="15" fill="#c9a8ff">vibronic coupling</text>
+      <path class="flowr" d="M192 116 C150 130 120 90 112 68" stroke="#c9a8ff" stroke-width="3.5" fill="none" marker-end="url(#p1)"/>
+      <text x="22" y="132" class="sv" font-size="15" fill="#c9a8ff">spin–orbit</text><text x="22" y="150" class="sv" font-size="15" fill="#c9a8ff">coupling</text>
+    </svg>
+    <div class="eq rv" style="--d:.3s;font-size:28px;padding:14px 18px"><tex d>k_{\mathrm{RISC}}\propto\bigl\lvert\langle S_1\vert\hat H_{\mathrm{eff}}\vert T_1\rangle\bigr\rvert^{2}\,F_{\mathrm{vib}}(T)</tex></div>
+    <p class="p rv" style="--d:.4s;font-size:22px"><span class="c-s">Small ΔE<sub>ST</sub></span> makes RISC <b style="color:var(--ink);font-weight:500">accessible</b>. <span class="c-p">Coupling</span> sets how fast it really is.</p>
+  </div>
+  <div class="col" style="flex:1;gap:12px">
+    <div class="panel" style="padding:14px 18px">
+      <svg viewBox="0 0 800 380" width="100%" role="img" aria-label="RISC rate against effective coupling at fixed singlet-triplet gap, on a logarithmic scale">
+        <text x="70" y="24" class="axl">k_RISC (s⁻¹, log scale)</text>
+        <g stroke="#26364f"><line x1="70" y1="40" x2="780" y2="40"/><line x1="70" y1="130" x2="780" y2="130"/><line x1="70" y1="220" x2="780" y2="220"/><line x1="70" y1="310" x2="780" y2="310" stroke="#3a4d6b"/></g>
+        <g class="ax" text-anchor="end"><text x="60" y="314">10⁴</text><text x="60" y="224">10⁵</text><text x="60" y="134">10⁶</text><text x="60" y="44">10⁷</text></g>
+        <g class="ax" text-anchor="middle"><text x="70" y="336">0.1</text><text x="425" y="336">0.55</text><text x="780" y="336">1.0</text></g>
+        <text x="425" y="368" text-anchor="middle" class="axl">Effective spin-changing coupling c   (ΔE_ST fixed at 0.10 eV)</text>
+        <path d="{{curve}}" fill="none" stroke="#c9a8ff" stroke-width="4.5"/>
+        <circle cx="70" cy="{{ya}}" r="7" fill="none" stroke="#adbbd2" stroke-width="3"/><text x="86" y="{{yaL}}" class="sv" font-size="15" fill="#adbbd2">molecule A</text>
+        <circle cx="780" cy="{{yb}}" r="7" fill="none" stroke="#adbbd2" stroke-width="3"/><text x="768" y="{{ybL}}" text-anchor="end" class="sv" font-size="15" fill="#adbbd2">molecule B: 100× faster</text>
+        <line x1="{{mx}}" y1="{{my}}" x2="{{mx}}" y2="310" stroke="#adbbd2" stroke-dasharray="3 6"/>
+        <circle cx="{{mx}}" cy="{{my}}" r="9" fill="#c9a8ff"/>
+      </svg>
+    </div>
+    <div class="ctl"><span class="lab">Coupling c <b>{{cTxt}}</b></span><input type="range" min="0.1" max="1" step="0.01" value="{{cRaw}}" onInput="{{onC}}" aria-label="Effective coupling"></div>
+    <div class="row g32" style="align-items:flex-end;padding:0 6px">
+      <div class="read c-p">{{krisc}}<small>k<sub>RISC</sub>, s⁻¹</small></div>
+      <div class="read" style="font-size:46px;color:var(--mut)">{{yld}}%<small>internal photon yield</small></div>
+      <div class="read" style="font-size:46px;color:var(--mut)">0.100<small>ΔE<sub>ST</sub> proxy, eV (fixed)</small></div>
+    </div>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  sci(v) { const sp = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻' }; const [m, e] = v.toExponential(1).split('e'); return m + '×10' + String(parseInt(e, 10)).split('').map((ch) => sp[ch]).join(''); }
+  yieldEL(r, kr) { const KS = kr + 5e6 + 1e7; const a = kr / KS, b = 1e7 / KS, q = r / (r + 1e4); return a * (0.25 + 0.75 * q) / (1 - b * q); }
+  rate(c) { return 1e8 * c * c * Math.exp(-0.1 / (8.617333262e-5 * 300)); }
+  renderVals() {
+    const c = Math.max(0.1, Math.min(1, this.state.c ?? 0.55));
+    const X = (v) => 70 + (v - 0.1) / 0.9 * 710; const Y = (rr) => 310 - (Math.log10(rr) - 4) * 90;
+    let curve = '';
+    for (let i = 0; i <= 90; i++) { const v = 0.1 + i * 0.9 / 90; curve += (i ? 'L' : 'M') + X(v).toFixed(1) + ' ' + Y(this.rate(v)).toFixed(1) + ' '; }
+    const y = this.yieldEL(this.rate(c), 5e7);
+    const ya = Y(this.rate(0.1)); const yb = Y(this.rate(1));
+    const r = this.rate(c);
+    return {
+      curve: curve.trim(), mx: X(c), my: Y(this.rate(c)), ya, yaL: ya + 34, yb, ybL: yb + 38,
+      cTxt: c.toFixed(2), cRaw: c, yld: (y * 100).toFixed(1),
+      krisc: this.sci(r),
+      onC: (e) => this.setState({ c: parseFloat(e.target.value) }),
+    };
+  }
+}
+</script>

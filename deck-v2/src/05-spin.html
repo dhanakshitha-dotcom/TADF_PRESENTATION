@@ -1,0 +1,64 @@
+<!--meta {"file":"05-spin","num":5,"acc":"spin","eyebrow":"II · Spin","title":"Two spin-½ objects: <em>one</em> singlet, <em>three</em> triplets","src":"Angular-momentum addition for an electron and a hole; the m = 0 triplet is a mixed-spin state","interactive":false} -->
+<style>
+.sc{width:330px;padding:16px 18px 18px;border:1px solid var(--line);border-radius:16px;background:var(--panel);display:flex;flex-direction:column;gap:8px;align-items:center}
+.sc .kc{font-size:22px;color:var(--ink)}
+.sc h3{margin:0;font:400 40px/1 'Instrument Serif',Georgia,serif}
+</style>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs>
+  <marker id="hE" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0 0 L14 7 L0 14 Z" fill="#74adff"/></marker>
+  <marker id="hH" markerUnits="userSpaceOnUse" markerWidth="14" markerHeight="14" refX="12" refY="7" orient="auto"><path d="M0 0 L14 7 L0 14 Z" fill="#ff93ab"/></marker>
+</defs></svg>
+<div class="row g32 rv" style="align-items:center;height:110px">
+  <div class="eq" style="width:520px;height:100px;font-size:36px"><tex d>\tfrac{1}{2}\otimes\tfrac{1}{2}=0\oplus 1</tex></div>
+  <p class="p" style="flex:1;font-size:26px"><span class="c-e">electron spin ½</span> + <span class="c-h">hole spin ½</span> couple to total spin <b style="color:var(--sing);font-weight:500">S = 0</b> or <b style="color:var(--trip);font-weight:500">S = 1</b>.</p>
+</div>
+<div class="row" style="gap:40px;margin-top:22px;align-items:flex-end">
+  <div class="col g12 rv" style="--d:.15s">
+    <div class="chip" style="align-self:flex-start;color:var(--sing);border-color:rgba(98,231,244,.5)"><i class="dot-s"></i>S = 0 · 1 state</div>
+    <div class="sc" style="border-color:rgba(98,231,244,.5)">
+      <span class="lab c-s" style="text-transform:none;font-size:18px">m = 0</span>
+      <svg viewBox="0 0 290 100" width="290" height="100" role="img" aria-label="Singlet: electron up and hole down, minus electron down and hole up">
+        <path d="M50 82 V30" stroke="#74adff" stroke-width="4" marker-end="url(#hE)"/><path d="M100 18 V70" stroke="#ff93ab" stroke-width="4" marker-end="url(#hH)"/>
+        <text x="145" y="60" text-anchor="middle" class="svs" font-size="40" fill="#f1f6ff">−</text>
+        <path d="M190 18 V70" stroke="#74adff" stroke-width="4" marker-end="url(#hE)"/><path d="M240 82 V30" stroke="#ff93ab" stroke-width="4" marker-end="url(#hH)"/>
+      </svg>
+      <h3 class="c-s">Singlet</h3>
+      <div class="kc"><tex>\tfrac{1}{\sqrt2}\bigl(\lvert{\uparrow\downarrow}\rangle-\lvert{\downarrow\uparrow}\rangle\bigr)</tex></div>
+    </div>
+  </div>
+  <div class="col g12" style="flex:1">
+    <div class="chip rv" style="--d:.3s;align-self:flex-start;color:var(--trip);border-color:rgba(255,192,113,.5)"><i class="dot-t"></i>S = 1 · 3 states</div>
+    <div class="row" style="gap:40px;justify-content:space-between">
+      <div class="sc rv" style="--d:.3s;border-color:rgba(255,192,113,.5)">
+        <span class="lab c-t" style="text-transform:none;font-size:18px">m = +1</span>
+        <svg viewBox="0 0 290 100" width="290" height="100" role="img" aria-label="Triplet m plus one: both spins up">
+          <path d="M118 82 V30" stroke="#74adff" stroke-width="4" marker-end="url(#hE)"/><path d="M172 82 V30" stroke="#ff93ab" stroke-width="4" marker-end="url(#hH)"/>
+        </svg>
+        <h3 class="c-t">Triplet</h3>
+        <div class="kc"><tex>\lvert{\uparrow\uparrow}\rangle</tex></div>
+      </div>
+      <div class="sc rv" style="--d:.42s;border-color:rgba(255,192,113,.5)">
+        <span class="lab c-t" style="text-transform:none;font-size:18px">m = 0</span>
+        <svg viewBox="0 0 290 100" width="290" height="100" role="img" aria-label="Triplet m zero: electron up and hole down, plus electron down and hole up">
+          <path d="M50 82 V30" stroke="#74adff" stroke-width="4" marker-end="url(#hE)"/><path d="M100 18 V70" stroke="#ff93ab" stroke-width="4" marker-end="url(#hH)"/>
+          <text x="145" y="60" text-anchor="middle" class="svs" font-size="40" fill="#f1f6ff">+</text>
+          <path d="M190 18 V70" stroke="#74adff" stroke-width="4" marker-end="url(#hE)"/><path d="M240 82 V30" stroke="#ff93ab" stroke-width="4" marker-end="url(#hH)"/>
+        </svg>
+        <h3 class="c-t">Triplet</h3>
+        <div class="kc"><tex>\tfrac{1}{\sqrt2}\bigl(\lvert{\uparrow\downarrow}\rangle+\lvert{\downarrow\uparrow}\rangle\bigr)</tex></div>
+      </div>
+      <div class="sc rv" style="--d:.54s;border-color:rgba(255,192,113,.5)">
+        <span class="lab c-t" style="text-transform:none;font-size:18px">m = −1</span>
+        <svg viewBox="0 0 290 100" width="290" height="100" role="img" aria-label="Triplet m minus one: both spins down">
+          <path d="M118 18 V70" stroke="#74adff" stroke-width="4" marker-end="url(#hE)"/><path d="M172 18 V70" stroke="#ff93ab" stroke-width="4" marker-end="url(#hH)"/>
+        </svg>
+        <h3 class="c-t">Triplet</h3>
+        <div class="kc"><tex>\lvert{\downarrow\downarrow}\rangle</tex></div>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row rv" style="--d:.7s;margin-top:26px;align-items:center;gap:28px">
+  <span class="serif" style="font-size:60px;line-height:1"><span class="c-s">1</span> + <span class="c-t">3</span> = 4 <span class="c-m" style="font-size:40px">spin states</span></span>
+  <p class="cap" style="flex:1">Three triplet states, but not all “parallel arrows”: the m = 0 triplet is a mixed-spin state.</p>
+</div>

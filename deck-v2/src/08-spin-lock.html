@@ -1,0 +1,47 @@
+<!--meta {"file":"08-spin-lock","num":8,"acc":"trip","eyebrow":"III · Making light","title":"Two locks on one door: the <em>spin lock</em>","src":"Spin-pure electric-dipole approximation. Spin–orbit mixing makes T₁→S₀ weakly allowed rather than strictly impossible","interactive":false} -->
+<div class="row" style="height:100%;gap:48px">
+  <div class="col" style="width:560px;gap:20px">
+    <div class="panel rv"><div class="row g16" style="align-items:center"><span class="chip"><i class="dot-p"></i>Lock 1 · energy</span><span class="p" style="font-size:23px">Is the transition energetically possible?</span></div></div>
+    <div class="panel rv" style="--d:.15s"><div class="row g16" style="align-items:center"><span class="chip"><i class="dot-p"></i>Lock 2 · spin</span><span class="p" style="font-size:23px">Is the spin configuration compatible?</span></div></div>
+    <div class="eq rv" style="--d:.3s;flex-direction:column;gap:6px;font-size:30px;padding:18px 24px"><tex d>\Delta S=0\quad\text{(electric dipole)}</tex><tex d>\langle S_0\vert\hat{\boldsymbol\mu}\vert T_1\rangle=0</tex></div>
+    <p class="p rv" style="--d:.45s;font-size:23px">Light acts on the <b style="color:var(--ink);font-weight:500">spatial</b> wavefunction. It does not directly flip an electron spin.</p>
+    <p class="serif rv" style="--d:.6s;font-size:38px;line-height:1.1;margin:0"><span class="c-t">Forbidden</span> ≠ impossible.<br><span class="c-d">Just much less probable.</span></p>
+  </div>
+  <div style="flex:1;position:relative">
+    <svg viewBox="0 0 760 560" width="100%" height="100%" role="img" aria-label="Level diagram: S1 to S0 passes both locks and emits a photon; T1 to S0 is blocked by the spin lock">
+      <defs>
+        <marker id="aS" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0 0 L16 8 L0 16 Z" fill="#62e7f4"/></marker>
+        <marker id="aT" markerUnits="userSpaceOnUse" markerWidth="16" markerHeight="16" refX="14" refY="8" orient="auto"><path d="M0 0 L16 8 L0 16 Z" fill="#ffc071"/></marker>
+        <marker id="sE" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#74adff"/></marker>
+        <marker id="sH" markerUnits="userSpaceOnUse" markerWidth="10" markerHeight="10" refX="9" refY="5" orient="auto"><path d="M0 0 L10 5 L0 10 Z" fill="#ff93ab"/></marker>
+      </defs>
+      <!-- levels -->
+      <line x1="90" y1="120" x2="290" y2="120" stroke="#62e7f4" stroke-width="5" stroke-linecap="round"/>
+      <line x1="470" y1="170" x2="670" y2="170" stroke="#ffc071" stroke-width="5" stroke-linecap="round"/>
+      <line x1="90" y1="470" x2="670" y2="470" stroke="#8394b0" stroke-width="5" stroke-linecap="round"/>
+      <text x="90" y="100" class="sv" font-size="22" font-weight="600" fill="#62e7f4">S₁</text>
+      <text x="470" y="150" class="sv" font-size="22" font-weight="600" fill="#ffc071">T₁</text>
+      <text x="90" y="502" class="sv" font-size="22" font-weight="600" fill="#adbbd2">S₀</text>
+      <!-- spin arrows on each level -->
+      <g stroke-width="3.5" fill="none">
+        <path d="M172 112 V70" stroke="#74adff" marker-end="url(#sE)"/><path d="M208 76 V118" stroke="#ff93ab" marker-end="url(#sH)"/>
+        <path d="M552 162 V120" stroke="#74adff" marker-end="url(#sE)"/><path d="M588 162 V120" stroke="#ff93ab" marker-end="url(#sH)"/>
+        <path d="M262 462 V420" stroke="#74adff" marker-end="url(#sE)"/><path d="M298 426 V468" stroke="#ff93ab" marker-end="url(#sH)"/>
+      </g>
+      <text x="190" y="40" text-anchor="middle" class="sv" font-size="15" fill="#8394b0">opposite spins</text>
+      <text x="570" y="90" text-anchor="middle" class="sv" font-size="15" fill="#8394b0">parallel spins (m = +1 shown)</text>
+      <!-- allowed: S1 -> S0 -->
+      <path d="M160 180 V440" stroke="#62e7f4" stroke-width="4" fill="none" marker-end="url(#aS)"/>
+      <g transform="translate(232 290)"><rect x="-18" y="-4" width="36" height="28" rx="5" fill="#0b1729" stroke="#62e7f4" stroke-width="3"/><path d="M-10 -4 V-14 a10 10 0 0 1 20 0" fill="none" stroke="#62e7f4" stroke-width="3" transform="rotate(25 10 -4) translate(6 -4)"/><circle cx="0" cy="10" r="3" fill="#62e7f4"/></g>
+      <text x="262" y="262" class="sv" font-size="16" fill="#62e7f4">both locks open</text>
+      <text x="262" y="322" class="sv" font-size="16" fill="#62e7f4">photon</text>
+      <path d="M290 304 q12.5 -20 25 0 t25 0 t25 0 t25 0 t25 0" stroke="#62e7f4" stroke-width="4" fill="none" stroke-linecap="round"/>
+      <!-- blocked: T1 -> S0 -->
+      <path d="M570 230 V440" stroke="#ffc071" stroke-width="4" stroke-dasharray="8 8" fill="none" marker-end="url(#aT)" opacity=".75"/>
+      <g transform="translate(570 362)"><rect x="-22" y="-8" width="44" height="34" rx="6" fill="#0b1729" stroke="#ffc071" stroke-width="3.5"/><path d="M-12 -8 V-20 a12 12 0 0 1 24 0 V-8" fill="none" stroke="#ffc071" stroke-width="3.5"/><circle cx="0" cy="9" r="4" fill="#ffc071"/></g>
+      <path d="M552 262 L588 298 M588 262 L552 298" stroke="#ff7d7d" stroke-width="5" stroke-linecap="round"/>
+      <text x="604" y="286" class="sv" font-size="16" fill="#ffc071">spin lock closed</text>
+      <text x="604" y="430" class="sv" font-size="16" fill="#8394b0">no photon (slow)</text>
+    </svg>
+  </div>
+</div>

@@ -1,0 +1,39 @@
+<!--meta {"file":"19-eqe","num":19,"acc":"sing","eyebrow":"VI · Efficiency","title":"Internal versus <em>external</em> efficiency","src":"Teaching limits: IQE 25% or ≈100% with 20% outcoupling gives 5% or 20% EQE. Not measured device efficiencies; real outcoupling and IQE vary with device design","interactive":true} -->
+<style>
+.trk{height:30px;border-radius:8px;background:#16253d;overflow:hidden;display:flex}
+.seg{height:100%;transition:width .2s}
+</style>
+<div class="row" style="height:100%;gap:50px">
+  <div class="col" style="width:520px;gap:18px">
+    <p class="lead rv" style="font-size:29px">Some photons never leave: <span class="c-p">reflection</span>, <span class="c-p">waveguiding</span>, trapped inside the stack.</p>
+    <div class="eq rv" style="--d:.12s;font-size:30px;flex-direction:column;gap:4px;padding:14px 20px"><tex d>\mathrm{EQE}\approx\gamma\,\Phi_{\mathrm{EL}}\,\eta_{\mathrm{out}}</tex><tex d>\mathrm{EQE}=\mathrm{IQE}\times\eta_{\mathrm{out}}</tex></div>
+    <div class="row g12 rv" style="--d:.22s"><button class="btn" aria-pressed="{{pFl}}" onClick="{{setFl}}">Fluorescent 25%</button><button class="btn" aria-pressed="{{pTa}}" onClick="{{setTa}}">Ideal TADF 100%</button></div>
+    <div class="ctl rv" style="--d:.3s"><span class="lab">Light outcoupling <span style="text-transform:none">(η<sub>out</sub>)</span> <b>{{outTxt}}%</b></span><input type="range" min="10" max="50" step="1" value="{{outRaw}}" onInput="{{onOut}}" aria-label="Outcoupling efficiency"></div>
+    <div class="row g32 rv" style="--d:.4s;align-items:flex-end">
+      <div class="read c-s">{{eqe}}%<small>external (EQE)</small></div>
+      <div class="read" style="font-size:52px;color:var(--mut)">{{iqe}}%<small>internal (IQE)</small></div>
+    </div>
+  </div>
+  <div class="col" style="flex:1;gap:26px;justify-content:center">
+    <div class="col g12"><div class="row" style="justify-content:space-between"><span class="lab c-e">Electrons injected</span><span class="sv" style="font-size:20px">100</span></div><div class="trk"><div class="seg" style="width:100%;background:var(--elec)"></div></div></div>
+    <div class="col g12"><div class="row" style="justify-content:space-between"><span class="lab">Excitons formed <span style="text-transform:none">(γ = 1)</span></span><span class="sv" style="font-size:20px">100</span></div><div class="trk"><div class="seg" style="width:100%;background:#cdd6e6"></div></div></div>
+    <div class="col g12"><div class="row" style="justify-content:space-between"><span class="lab c-s">Internal photons</span><span class="sv" style="font-size:20px">{{iqe}}</span></div><div class="trk"><div class="seg" style="width: {{iqe}}%;background:var(--sing)"></div></div></div>
+    <div class="col g12"><div class="row" style="justify-content:space-between"><span class="lab">Of those: <span class="c-s">escape</span> · <span class="c-p">trapped</span></span><span class="sv" style="font-size:20px"><span class="c-s">{{eqe}}</span> · <span class="c-p">{{trapped}}</span></span></div><div class="trk"><div class="seg" style="width: {{eqe}}%;background:var(--sing)"></div><div class="seg" style="width: {{trapped}}%;background:repeating-linear-gradient(135deg,#c9a8ff 0 6px,#5b4a85 6px 12px)"></div></div></div>
+    <p class="p" style="font-size:22px">Even near-perfect exciton use can give a much lower EQE.</p>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    const iqe = this.state.iqe ?? 1.0; const out = this.state.out ?? 0.2;
+    const I = iqe * 100; const E = I * out;
+    return {
+      iqe: I.toFixed(0), eqe: E.toFixed(E < 10 ? 1 : 0).replace(/\.0$/, ''), trapped: (I - E).toFixed(0),
+      outTxt: Math.round(out * 100), outRaw: Math.round(out * 100),
+      pFl: iqe < 0.5 ? 'true' : 'false', pTa: iqe >= 0.5 ? 'true' : 'false',
+      setFl: () => this.setState({ iqe: 0.25 }), setTa: () => this.setState({ iqe: 1.0 }),
+      onOut: (e) => this.setState({ out: parseFloat(e.target.value) / 100 }),
+    };
+  }
+}
+</script>
