@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Beyond the twisted donor–acceptor</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@400;500;600&amp;family=Geist:wght@300;400;500;600&amp;family=Instrument+Serif:ital@0;1&amp;display=swap">
+<style>
+
+body{margin:0;background:#03060d}
+.sl{--bg:#050a14;--bg2:#0a1428;--ink:#f1f6ff;--mut:#adbbd2;--dim:#8394b0;--line:#26364f;--panel:#0b1729;--panel2:#10203a;
+--sing:#62e7f4;--trip:#ffc071;--spin:#c9a8ff;--elec:#74adff;--hole:#ff93ab;--phot:#9dbdff;--ok:#7be3a7;
+position:relative;width:1600px;height:900px;overflow:hidden;box-sizing:border-box;background:var(--bg);color:var(--ink);
+font-family:'Geist',system-ui,-apple-system,'Segoe UI',sans-serif;font-size:26px;line-height:1.4;-webkit-font-smoothing:antialiased}
+.sl *{box-sizing:border-box}
+.sl::before{content:"";position:absolute;inset:0;pointer-events:none;
+background:radial-gradient(1100px 620px at 92% -8%,color-mix(in oklab,var(--acc) 15%,transparent),transparent 70%),
+radial-gradient(circle at 1px 1px,rgba(173,187,210,.09) 1px,transparent 0) 0 0/36px 36px}
+.eyebrow{position:absolute;left:80px;top:44px;display:flex;gap:18px;align-items:baseline;font:500 17px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--acc)}
+.eyebrow b{font-weight:500;color:var(--dim)}
+.hd{position:absolute;left:80px;right:80px;top:76px;margin:0;font:400 76px/1.04 'Instrument Serif',Georgia,'Times New Roman',serif;letter-spacing:-.012em;color:var(--ink)}
+.hd em{font-style:italic;color:var(--acc)}
+.mn{position:absolute;left:80px;right:80px;top:196px;bottom:88px}
+.foot{position:absolute;left:80px;right:80px;bottom:24px;display:flex;justify-content:space-between;align-items:flex-end;gap:40px;font:400 15px/1.3 'Geist Mono',ui-monospace,monospace;color:var(--dim)}
+.foot span:last-child{flex:none;white-space:nowrap}
+.bar{position:absolute;left:0;bottom:0;height:3px;background:var(--acc)}
+.lead{font-size:31px;line-height:1.36;color:var(--ink);margin:0}
+.p{font-size:25px;line-height:1.45;color:var(--mut);margin:0}
+.cap{font:400 17px/1.45 'Geist Mono',ui-monospace,monospace;color:var(--dim);margin:0}
+.lab{font:500 16px/1.2 'Geist Mono',ui-monospace,monospace;letter-spacing:.12em;text-transform:uppercase;color:var(--dim)}
+.serif{font-family:'Instrument Serif',Georgia,serif;font-weight:400}
+.big{font:400 96px/1 'Instrument Serif',Georgia,serif;letter-spacing:-.02em}
+.mid{font:400 56px/1.05 'Instrument Serif',Georgia,serif}
+.c-s{color:var(--sing)}.c-t{color:var(--trip)}.c-p{color:var(--spin)}.c-e{color:var(--elec)}.c-h{color:var(--hole)}.c-d{color:var(--dim)}.c-m{color:var(--mut)}
+.it{font-style:italic}
+.row{display:flex;gap:28px}.col{display:flex;flex-direction:column}
+.g12{gap:12px}.g16{gap:16px}.g20{gap:20px}.g24{gap:24px}.g32{gap:32px}.g40{gap:40px}
+.chip{display:inline-flex;align-items:center;gap:10px;border:1px solid var(--line);border-radius:999px;padding:7px 18px;font:500 17px/1 'Geist Mono',ui-monospace,monospace;color:var(--mut);background:rgba(11,23,41,.7);white-space:nowrap}
+.chip i{width:10px;height:10px;border-radius:50%;display:block;flex:none}
+.dot-s{background:var(--sing)}.dot-t{background:var(--trip)}.dot-p{background:var(--spin)}.dot-e{background:var(--elec)}.dot-h{background:var(--hole)}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:24px 28px}
+.eq{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:20px 30px;display:flex;align-items:center;justify-content:center;text-align:center;color:var(--ink);font-size:32px}
+.eq .katex-display{margin:0}
+.katex{font-size:1.12em}
+.eq .katex{font-size:1.08em}
+.rule{height:1px;background:var(--line);border:0;margin:0}
+.btn{font:500 18px/1.1 'Geist Mono',ui-monospace,monospace;color:var(--ink);background:transparent;border:1px solid #4c628a;border-radius:10px;padding:12px 20px;min-height:46px;cursor:pointer}
+.btn:hover{background:#13253f;border-color:var(--sing)}
+.btn[aria-pressed="true"]{background:#0d3441;color:var(--sing);border-color:var(--sing)}
+.btn.go{background:var(--sing);color:#04202a;border-color:var(--sing);font-weight:600}
+.btn.go:hover{background:#8df0fa}
+.btn:focus-visible,input[type=range]:focus-visible{outline:3px solid var(--sing);outline-offset:3px}
+input[type=range]{accent-color:var(--sing);width:100%;height:30px;margin:0;cursor:pointer}
+.ctl{display:flex;flex-direction:column;gap:6px}
+.ctl .lab{display:flex;justify-content:space-between;align-items:baseline}
+.ctl .lab b{font-weight:600;color:var(--ink);letter-spacing:.04em;text-transform:none;font-size:20px}
+.read{font:400 64px/1 'Instrument Serif',Georgia,serif;letter-spacing:-.015em}
+.read small{font:500 15px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.1em;text-transform:uppercase;color:var(--dim);display:block;margin-top:10px}
+.ax{font:400 15px 'Geist Mono',ui-monospace,monospace;fill:var(--dim)}
+.axl{font:500 16px 'Geist Mono',ui-monospace,monospace;fill:var(--mut)}
+.sv{font-family:'Geist Mono',ui-monospace,monospace}
+.svs{font-family:'Instrument Serif',Georgia,serif}
+.dots{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:9px}
+.dot{aspect-ratio:1;border-radius:50%;background:#16253d;transition:background .35s,transform .35s,box-shadow .35s}
+.dot.d-s{background:var(--sing);box-shadow:0 0 14px rgba(98,231,244,.55)}
+.dot.d-t{background:var(--trip)}
+.dot.d-x{background:#5a4a36}
+.dot.d-r{background:var(--sing);box-shadow:0 0 14px rgba(98,231,244,.55)}
+@keyframes rise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+@keyframes flow{to{stroke-dashoffset:-36}}
+@keyframes flowr{to{stroke-dashoffset:36}}
+@keyframes pulse{0%,100%{opacity:.4}50%{opacity:1}}
+@keyframes breathe{0%,100%{transform:scale(1);opacity:.85}50%{transform:scale(1.08);opacity:1}}
+@keyframes orbit{to{transform:rotate(360deg)}}
+@keyframes drift{0%{transform:translateY(0);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateY(var(--dy,100px));opacity:0}}
+@keyframes driftx{0%{transform:translateX(0);opacity:0}12%{opacity:1}88%{opacity:1}100%{transform:translateX(var(--dx,100px));opacity:0}}
+@keyframes ripple{0%{transform:scale(.3);opacity:.9}100%{transform:scale(1.7);opacity:0}}
+@keyframes wave{to{stroke-dashoffset:-120}}
+@keyframes lit{0%,100%{opacity:.3}50%{opacity:1}}
+@keyframes seq{0%{opacity:0;transform:translateY(12px)}100%{opacity:1;transform:none}}
+.rv{animation:rise .9s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--d,0s)}
+.fd{animation:fade 1.2s ease both;animation-delay:var(--d,0s)}
+.flow{stroke-dasharray:9 9;animation:flow 1.1s linear infinite}
+.flowr{stroke-dasharray:9 9;animation:flowr 1.1s linear infinite}
+.pulse{animation:pulse 2.8s ease-in-out infinite;animation-delay:var(--d,0s)}
+.breathe{transform-box:fill-box;transform-origin:center;animation:breathe 3.2s ease-in-out infinite;animation-delay:var(--d,0s)}
+.orbit{animation:orbit var(--T,5s) linear infinite}
+.drift{animation:drift var(--T,3.4s) linear infinite;animation-delay:var(--d,0s)}
+.driftx{animation:driftx var(--T,3.4s) linear infinite;animation-delay:var(--d,0s)}
+.ripple{transform-box:fill-box;transform-origin:center;animation:ripple 2.8s ease-out infinite;animation-delay:var(--d,0s)}
+.wavy{stroke-dasharray:14 7;animation:wave 2s linear infinite}
+.seq{animation:seq .9s cubic-bezier(.16,1,.3,1) both;animation-delay:var(--d,0s)}
+@media (prefers-reduced-motion:reduce){.sl *{animation:none!important;transition:none!important}}
+
+
+
+</style>
+</helmet>
+<div class="sl" style="--acc:var(--spin)">
+<div class="eyebrow"><b>23</b><span>VII · Modern designs</span></div>
+<h1 class="hd">Beyond the twisted <em>donor–acceptor</em></h1>
+<div class="mn">
+<div class="row" style="gap:28px;height:470px">
+  <div class="panel rv" style="flex:1;padding:18px 22px;display:flex;flex-direction:column;align-items:center;gap:8px">
+    <span class="lab">Twisted donor–acceptor</span>
+    <svg viewBox="0 0 600 300" width="100%" role="img" aria-label="A donor ring and a twisted acceptor ring; the HOMO sits on the donor and the LUMO on the acceptor">
+      <ellipse cx="190" cy="150" rx="110" ry="74" fill="rgba(255,147,171,.28)" stroke="#ff93ab" stroke-width="2.5"/>
+      <ellipse cx="418" cy="150" rx="86" ry="74" fill="rgba(116,173,255,.28)" stroke="#74adff" stroke-width="2.5"/>
+      <polygon points="190,106 228,128 228,172 190,194 152,172 152,128" fill="none" stroke="#adbbd2" stroke-width="3.5"/>
+      <line x1="228" y1="150" x2="378" y2="150" stroke="#adbbd2" stroke-width="3.5"/>
+      <polygon points="418,106 436,128 436,172 418,194 400,172 400,128" fill="none" stroke="#adbbd2" stroke-width="3.5"/>
+      <text x="190" y="40" text-anchor="middle" class="sv" font-size="18" font-weight="600" fill="#ff93ab">HOMO on donor</text>
+      <text x="418" y="40" text-anchor="middle" class="sv" font-size="18" font-weight="600" fill="#74adff">LUMO on acceptor</text>
+      <text x="300" y="270" text-anchor="middle" class="sv" font-size="16" fill="#8394b0">twisted: clouds separated by a few bonds</text>
+    </svg>
+    <p class="p" style="font-size:22px;text-align:center">Small gap, but the transition can be weak and the emission broad.</p>
+  </div>
+  <div class="panel rv" style="--d:.25s;flex:1;padding:18px 22px;display:flex;flex-direction:column;align-items:center;gap:8px;border-color:rgba(201,168,255,.5)">
+    <span class="lab c-p">Rigid framework · separation at the atomic scale</span>
+    <svg viewBox="0 0 600 300" width="100%" role="img" aria-label="A rigid fused-ring framework with HOMO density on alternating atoms in rose and LUMO density on neighbouring atoms in blue">
+      <g transform="translate(0 -20)">
+<g stroke="#8394b0" stroke-width="3" stroke-linecap="round"><line x1="300.0" y1="210.0" x2="334.6" y2="190.0"/><line x1="265.4" y1="190.0" x2="300.0" y2="210.0"/><line x1="265.4" y1="150.0" x2="265.4" y2="190.0"/><line x1="265.4" y1="150.0" x2="300.0" y2="130.0"/><line x1="300.0" y1="130.0" x2="334.6" y2="150.0"/><line x1="334.6" y1="150.0" x2="334.6" y2="190.0"/><line x1="403.9" y1="190.0" x2="369.3" y2="210.0"/><line x1="334.6" y1="190.0" x2="369.3" y2="210.0"/><line x1="334.6" y1="150.0" x2="369.3" y2="130.0"/><line x1="403.9" y1="150.0" x2="369.3" y2="130.0"/><line x1="403.9" y1="150.0" x2="403.9" y2="190.0"/><line x1="334.6" y1="270.0" x2="369.3" y2="250.0"/><line x1="300.0" y1="250.0" x2="334.6" y2="270.0"/><line x1="300.0" y1="210.0" x2="300.0" y2="250.0"/><line x1="369.3" y1="210.0" x2="369.3" y2="250.0"/><line x1="265.4" y1="270.0" x2="300.0" y2="250.0"/><line x1="265.4" y1="270.0" x2="230.7" y2="250.0"/><line x1="230.7" y1="210.0" x2="230.7" y2="250.0"/><line x1="265.4" y1="190.0" x2="230.7" y2="210.0"/><line x1="196.1" y1="190.0" x2="230.7" y2="210.0"/><line x1="196.1" y1="150.0" x2="196.1" y2="190.0"/><line x1="196.1" y1="150.0" x2="230.7" y2="130.0"/><line x1="265.4" y1="150.0" x2="230.7" y2="130.0"/><line x1="230.7" y1="130.0" x2="230.7" y2="90.0"/><line x1="265.4" y1="70.0" x2="230.7" y2="90.0"/><line x1="265.4" y1="70.0" x2="300.0" y2="90.0"/><line x1="300.0" y1="130.0" x2="300.0" y2="90.0"/><line x1="300.0" y1="90.0" x2="334.6" y2="70.0"/><line x1="334.6" y1="70.0" x2="369.3" y2="90.0"/><line x1="369.3" y1="130.0" x2="369.3" y2="90.0"/></g>
+<circle cx="334.6" cy="190.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="300.0" cy="210.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="265.4" cy="190.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="265.4" cy="150.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="300.0" cy="130.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="334.6" cy="150.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="403.9" cy="190.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="369.3" cy="210.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="369.3" cy="130.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="403.9" cy="150.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="369.3" cy="250.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="334.6" cy="270.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="300.0" cy="250.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="265.4" cy="270.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="230.7" cy="250.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="230.7" cy="210.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="196.1" cy="190.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="196.1" cy="150.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="230.7" cy="130.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="230.7" cy="90.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="265.4" cy="70.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="300.0" cy="90.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/><circle cx="334.6" cy="70.0" r="11" fill="rgba(255,147,171,.85)" stroke="#ff93ab" stroke-width="2"/><circle cx="369.3" cy="90.0" r="11" fill="rgba(116,173,255,.85)" stroke="#74adff" stroke-width="2"/>
+      </g>
+      <text x="300" y="290" text-anchor="middle" class="sv" font-size="16" fill="#8394b0">HOMO and LUMO on neighbouring atoms</text>
+    </svg>
+    <p class="p" style="font-size:22px;text-align:center">Rigid and flat: small gap <b style="color:var(--ink);font-weight:500">and</b> a strong, sharper transition.</p>
+  </div>
+</div>
+<div class="row g24 rv" style="--d:.5s;margin-top:22px;align-items:center">
+  <span class="serif" style="font-size:40px;line-height:1.1">Same goal: <span class="c-s">small gap</span>, <span class="c-p">good coupling</span>, <span class="c-t">efficient fluorescence</span>.</span>
+</div>
+</div>
+<div class="foot"><span>Schematic molecules. Rigid, atomically separated HOMO/LUMO designs include multiple-resonance emitters; the orbital colouring here is illustrative</span><span>23 / 26</span></div>
+<div class="bar" style="width:88.46%"></div>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":900}}'>
+class Component extends DCLogic {
+  renderVals() { return {}; }
+}
+</script>
+</body>
+</html>

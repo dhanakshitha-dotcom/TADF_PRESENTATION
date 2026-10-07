@@ -1,0 +1,18 @@
+<!--meta {"file":"A2-exchange-rates","num":"A2","acc":"spin","eyebrow":"Backup · Questions","title":"Exchange, activation and <em>rate equations</em>","src":"Elementary unscreened exchange integral; real materials need environmental and electronic-structure treatment. E_a is an effective activation energy, not simply the measured gap","docTitle":"Backup: exchange, activation and rate equations","interactive":false} -->
+<div class="row" style="height:100%;gap:40px">
+  <div class="col" style="flex:1.05;gap:16px">
+    <span class="lab c-p">Exchange and the gap</span>
+    <div class="eq" style="font-size:25px;padding:20px 18px"><tex d>K_{HL}=\iint\phi_H^{*}(\mathbf r_1)\,\phi_L(\mathbf r_1)\,\frac{e^{2}}{4\pi\varepsilon_0\lvert\mathbf r_1-\mathbf r_2\rvert}\,\phi_L^{*}(\mathbf r_2)\,\phi_H(\mathbf r_2)\,d^{3}r_1\,d^{3}r_2</tex></div>
+    <div class="eq" style="font-size:32px;padding:16px 18px"><tex d>\Delta E_{ST}\approx 2K_{HL}\qquad(J\equiv K_{HL})</tex></div>
+    <p class="p" style="font-size:21px">Reduced HOMO–LUMO overlap lowers the overlap density φ<sub>H</sub>φ<sub>L</sub>, hence K. Exchange and transition dipole are different quantities: there is no universal overlap law linking them.</p>
+    <span class="lab c-p" style="margin-top:6px">Transition strength</span>
+    <div class="eq" style="font-size:30px;padding:16px 18px"><tex d>k_r\propto\omega^{3}\,\lvert\boldsymbol\mu_{S_0S_1}\rvert^{2},\qquad\boldsymbol\mu_{S_0S_1}=\langle S_0\vert\hat{\boldsymbol\mu}\vert S_1\rangle</tex></div>
+  </div>
+  <div class="col" style="flex:1;gap:16px">
+    <span class="lab c-p">Thermal activation</span>
+    <div class="eq" style="font-size:25px;padding:16px 18px;flex-direction:column;gap:8px"><tex d>k_{\mathrm{RISC}}(T)\approx A\exp\!\Bigl[-\frac{E_a}{k_BT}\Bigr]</tex><tex d>k_BT\approx 0.0259\ \mathrm{eV}\ \ (T=300\ \mathrm K)</tex></div>
+    <span class="lab c-p" style="margin-top:6px">Schematic triplet balance</span>
+    <div class="eq" style="font-size:23px;padding:16px 14px"><tex d>\begin{aligned}\frac{dn_T}{dt}&=G_T+k_{\mathrm{ISC}}n_S-\bigl(k_{\mathrm{RISC}}+k_{\mathrm{nr},T}+k_{\mathrm{ph}}\bigr)n_T\\&\quad-2k_{\mathrm{TTA}}n_T^{2}-k_{\mathrm{TP}}n_Tn_P\end{aligned}</tex></div>
+    <p class="p" style="font-size:21px">n<sub>S</sub>, n<sub>P</sub>: singlet and polaron densities. A toy model: product-state branching, singlet balance and recycling are omitted, and it is not a fit to any device.</p>
+  </div>
+</div>
