@@ -1,0 +1,395 @@
+[
+  {
+    "slide": 1,
+    "title": "Title",
+    "paras": []
+  },
+  {
+    "slide": 2,
+    "title": "The OLED sandwich",
+    "paras": [
+      "Imagine an OLED as a very thin sandwich made from organic semiconductor molecules. On one side we have an anode, which supplies positive charge in the form of holes. On the other side we have a cathode, which supplies electrons. Between them are several organic semiconductor layers designed to transport those charges and eventually make them meet.",
+      "That is the starting point of the entire TADF story.",
+      "When we apply a voltage across the OLED, electrons are injected from the cathode and holes are injected from the anode. The electrons and holes move through the organic semiconductor. Unlike a normal inorganic semiconductor such as silicon, these organic materials are made from individual molecules, so it is often useful to think in terms of molecular energy levels."
+    ]
+  },
+  {
+    "slide": 3,
+    "title": "HOMO and LUMO",
+    "paras": [
+      "The two important energy levels are called the HOMO and the LUMO.",
+      "The HOMO is the highest occupied molecular orbital. You can roughly think of it as the molecular equivalent of the valence band.",
+      "The LUMO is the lowest unoccupied molecular orbital. You can roughly think of it as the molecular equivalent of the conduction band.",
+      "An injected electron generally occupies a LUMO-type state, while a hole corresponds to an empty state in the HOMO."
+    ]
+  },
+  {
+    "slide": 4,
+    "title": "An electron and a hole make an exciton",
+    "paras": [
+      "Now imagine the electron and hole moving through the material until they encounter one another.",
+      "They attract because they have opposite electrical charge.",
+      "Instead of immediately annihilating, they can form a bound excited state called an exciton.",
+      "A useful analogy is a very loose artificial atom. In a hydrogen atom, a negatively charged electron is attracted to a positively charged proton. In an exciton, a negatively charged electron is attracted to a positively charged hole.",
+      "The hole is not actually a separate fundamental particle sitting inside the molecule. It represents the absence of an electron. But mathematically and physically, it behaves sufficiently like a positively charged quasiparticle that treating the electron and hole as a pair is extremely useful."
+    ]
+  },
+  {
+    "slide": 5,
+    "title": "Two spin-one-half objects",
+    "paras": [
+      "Now we reach the quantum-mechanical part that is crucial for understanding TADF.",
+      "Both the electron and the hole behave as spin-one-half objects.",
+      "So when they form an exciton, we have two spin-one-half angular momenta that must be coupled together.",
+      "This is exactly the same angular-momentum addition problem you encounter in quantum mechanics.",
+      "Half plus half can give a total spin of either zero or one.",
+      "The total-spin-zero state is called the singlet state.",
+      "The total-spin-one states are called triplet states.",
+      "Why the strange names singlet and triplet?",
+      "Because for total spin zero, there is only one possible magnetic spin state.",
+      "For total spin one, there are three possible projections: plus one, zero and minus one.",
+      "So we have one singlet spin state and three triplet spin states."
+    ]
+  },
+  {
+    "slide": 6,
+    "title": "Four doors",
+    "paras": [
+      "That immediately gives us one of the most famous numbers in OLED physics.",
+      "If electrons and holes combine randomly with respect to spin, there is approximately a one-in-four probability of creating a singlet exciton and a three-in-four probability of creating a triplet exciton.",
+      "So approximately twenty-five percent singlets and seventy-five percent triplets.",
+      "Think of four doors.",
+      "One door leads into the singlet room.",
+      "Three doors lead into the triplet room.",
+      "Randomly throw excitons at the four doors, and most of them end up in the triplet room."
+    ]
+  },
+  {
+    "slide": 7,
+    "title": "How an OLED makes light",
+    "paras": [
+      "This creates a major problem for a conventional fluorescent OLED.",
+      "To understand why, we now need to think about how light is produced.",
+      "The lowest excited singlet state is usually called S one, and the singlet ground state is S zero.",
+      "If the molecule transitions from S one down to S zero, it can release its energy as a photon.",
+      "The photon energy is simply the difference between the two energy levels.",
+      "In equation form, h nu equals E excited minus E ground.",
+      "And because photon energy is also h c over lambda, the size of that energy gap ultimately determines the colour of the emitted light.",
+      "Large energy gaps correspond to higher-energy, shorter-wavelength light, towards blue.",
+      "Smaller energy gaps correspond to lower-energy, longer-wavelength light, towards red.",
+      "So the basic fluorescent process is: S one goes to S zero and emits a photon."
+    ]
+  },
+  {
+    "slide": 8,
+    "title": "The spin lock",
+    "paras": [
+      "The problem is what happens to T one, the lowest triplet state.",
+      "The ground state S zero is a singlet.",
+      "So a transition from T one to S zero changes the total spin from one to zero.",
+      "And electric-dipole transitions normally obey the selection rule delta S equals zero.",
+      "In simple language: light interacts strongly with the spatial part of the electronic wavefunction, but it does not directly flip the electron spin.",
+      "An analogy is that the molecule has two locks on a door.",
+      "One lock checks whether the energy transition is possible.",
+      "The other checks whether the spin configuration is compatible.",
+      "S one to S zero has the correct spin configuration, so the door opens easily.",
+      "T one to S zero has the wrong spin configuration. The molecule has enough energy to release, but the spin lock prevents the normal radiative transition.",
+      "This is why we call T one to S zero spin-forbidden.",
+      "Forbidden does not mean mathematically impossible. It means much less probable."
+    ]
+  },
+  {
+    "slide": 9,
+    "title": "The spin-statistics problem",
+    "paras": [
+      "So in a traditional fluorescent organic emitter, the twenty-five percent of excitons created as singlets can generate fluorescence efficiently, but the roughly seventy-five percent created as triplets are difficult to use.",
+      "That gives conventional fluorescent OLEDs a fundamental spin-statistical problem.",
+      "And this is exactly the problem that TADF attempts to solve."
+    ]
+  },
+  {
+    "slide": 10,
+    "title": "The TADF idea",
+    "paras": [
+      "TADF stands for thermally activated delayed fluorescence.",
+      "The clever idea is surprisingly simple.",
+      "Instead of trying to make the triplet emit directly, convert the triplet back into a singlet.",
+      "Then let the singlet perform the allowed fluorescent transition.",
+      "So the desired pathway becomes: T one goes to S one, and then S one goes to S zero while emitting a photon.",
+      "The transition from T one back to S one is called reverse intersystem crossing, or RISC.",
+      "To understand that name, first consider ordinary intersystem crossing.",
+      "If an excited molecule goes from S one into T one, it has crossed between two different spin systems. That is intersystem crossing, or ISC.",
+      "Reverse intersystem crossing is simply the opposite direction: T one back to S one.",
+      "Once the exciton returns to S one, it has essentially re-entered the normal fluorescent pathway.",
+      "This means that TADF molecules can potentially recover the huge seventy-five-percent triplet population that would otherwise be wasted.",
+      "Imagine an airport.",
+      "S one is the departure lounge with a direct gate to the photon.",
+      "T one is another lounge that does not have a direct flight.",
+      "A conventional fluorescent material leaves passengers stranded in the triplet lounge.",
+      "A TADF material builds a shuttle from the triplet lounge back to the singlet departure lounge.",
+      "Once the passengers return to S one, they can board the normal photon flight."
+    ]
+  },
+  {
+    "slide": 11,
+    "title": "Thermally activated",
+    "paras": [
+      "But there is an immediate difficulty.",
+      "Usually T one lies below S one in energy.",
+      "So moving from T one back into S one requires the exciton to move slightly uphill energetically.",
+      "Where does that extra energy come from?",
+      "From thermal energy in the surroundings.",
+      "That explains the first two words of the name: thermally activated.",
+      "At ordinary temperatures, molecules are constantly vibrating and exchanging thermal energy with their surroundings. If the energy difference between T one and S one is sufficiently small, thermal fluctuations can provide enough energy for the triplet to climb back into the singlet state.",
+      "We define this energy difference as delta E S T.",
+      "Delta E S T is approximately the energy of S one minus the energy of T one.",
+      "If delta E S T is enormous, asking a triplet to climb back into the singlet is like asking somebody to jump over a three-metre wall.",
+      "Thermal energy usually is not enough.",
+      "If delta E S T is very small, the wall becomes more like a small step.",
+      "Now thermal motion can help the exciton cross it.",
+      "So one of the central design requirements for a TADF molecule is: make the singlet-triplet energy gap small."
+    ]
+  },
+  {
+    "slide": 12,
+    "title": "Where the gap comes from: exchange",
+    "paras": [
+      "And now we arrive at the molecular-design physics.",
+      "Why are S one and T one separated in energy in the first place?",
+      "One important contribution comes from the exchange interaction.",
+      "The singlet and triplet have different spatial symmetries because of the requirement that the complete two-fermion wavefunction remains antisymmetric.",
+      "That creates an energy splitting related to the exchange integral.",
+      "Very roughly, we often say that delta E S T is related to approximately twice the exchange energy J.",
+      "The magnitude of the exchange interaction depends strongly on how much the relevant electron and hole wavefunctions overlap spatially.",
+      "Large overlap means a stronger exchange interaction and therefore a larger singlet-triplet splitting.",
+      "Small overlap means weaker exchange and therefore a smaller singlet-triplet splitting."
+    ]
+  },
+  {
+    "slide": 13,
+    "title": "Pull the clouds apart",
+    "paras": [
+      "This immediately gives chemists a molecular-design strategy.",
+      "Separate the HOMO and LUMO spatially.",
+      "Many TADF molecules therefore contain an electron-donating part and an electron-accepting part.",
+      "The donor tends to host the HOMO.",
+      "The acceptor tends to host the LUMO.",
+      "The molecule can also be twisted so that the donor and acceptor orbitals overlap less strongly.",
+      "Imagine two clouds.",
+      "One represents the HOMO.",
+      "The other represents the LUMO.",
+      "If the two clouds sit directly on top of one another, they overlap strongly and the exchange interaction is large.",
+      "If we pull the clouds apart, or twist them relative to one another, their overlap decreases.",
+      "The exchange interaction becomes smaller.",
+      "And therefore delta E S T becomes smaller.",
+      "This is why donor-acceptor molecular structures appear again and again in TADF materials.",
+      "The excited state often has significant charge-transfer character: excitation effectively moves electron density from the donor towards the acceptor."
+    ]
+  },
+  {
+    "slide": 14,
+    "title": "The balancing act",
+    "paras": [
+      "But there is an important catch.",
+      "If we completely separate the HOMO and LUMO, we may create an excellent small singlet-triplet gap but a terrible light emitter.",
+      "Why?",
+      "Because efficient fluorescence also benefits from good overlap between the initial and final electronic states.",
+      "So TADF molecular design involves a balancing act.",
+      "We want the HOMO and LUMO separated enough to make delta E S T small, but not so completely separated that the optical transition becomes extremely weak.",
+      "It's a bit like designing two neighbouring houses.",
+      "If the houses are too close together, the residents interact strongly, giving us a large exchange interaction.",
+      "If the houses are kilometres apart, the exchange problem disappears, but now communication between the residents becomes extremely difficult.",
+      "The ideal TADF structure puts them far enough apart to weaken exchange while still maintaining enough communication for efficient light emission."
+    ]
+  },
+  {
+    "slide": 15,
+    "title": "Spin-orbit coupling: blurring the boxes",
+    "paras": [
+      "Now there is another subtle point.",
+      "A small delta E S T is important, but it does not automatically guarantee fast RISC.",
+      "The triplet still has to change its spin character.",
+      "Simply making S one and T one nearly equal in energy does not remove the spin-selection rule.",
+      "Something has to provide coupling between the singlet and triplet states.",
+      "One mechanism is spin-orbit coupling.",
+      "Spin-orbit coupling links an electron's spin angular momentum with its orbital motion.",
+      "You can imagine it as introducing a slight blur between pure singlet and pure triplet identities.",
+      "Instead of the states being completely separate boxes labelled singlet and triplet, spin-orbit coupling allows a small amount of mixing between the boxes.",
+      "Once the states contain some mixed character, transitions between them become possible.",
+      "This is exactly why heavy-metal phosphorescent OLEDs work well. Heavy atoms such as iridium produce strong spin-orbit coupling, which greatly relaxes the spin restriction and allows triplet excitons to emit.",
+      "TADF is attractive because it can achieve triplet harvesting using purely organic molecules, avoiding the need for expensive heavy-metal emitters.",
+      "But ordinary light atoms such as carbon, nitrogen and hydrogen have relatively weak spin-orbit coupling."
+    ]
+  },
+  {
+    "slide": 16,
+    "title": "Stepping stones: spin-vibronic coupling",
+    "paras": [
+      "So real TADF molecules use more subtle mechanisms.",
+      "Molecular vibrations can participate, and nearby electronic states can help mediate the transition. This is often described in terms of spin-vibronic coupling.",
+      "You can imagine RISC not necessarily as one enormous leap directly from T one into S one, but sometimes as finding a sequence of stepping stones involving molecular vibration and neighbouring excited states.",
+      "That is why saying, “small delta E S T equals good TADF,” is an oversimplification.",
+      "A better statement is: small delta E S T makes RISC energetically accessible, while spin-orbit and spin-vibronic coupling determine how efficiently the system can actually make the transition.",
+      "The RISC rate therefore depends both on the energy gap and on the coupling between the states.",
+      "Schematically, quantum mechanics tells us that a transition rate depends on something like the square of a coupling matrix element, multiplied by energetic and vibrational factors.",
+      "So two molecules could have exactly the same delta E S T and still have completely different RISC rates."
+    ]
+  },
+  {
+    "slide": 17,
+    "title": "Why \"delayed\"?",
+    "paras": [
+      "Now we can finally explain the word delayed in thermally activated delayed fluorescence.",
+      "Suppose an exciton is created directly as S one.",
+      "It can emit quite quickly.",
+      "This is called prompt fluorescence.",
+      "But suppose the exciton enters T one.",
+      "It may remain there for considerably longer because the direct transition to S zero is spin-forbidden.",
+      "Eventually thermal energy and the relevant coupling mechanisms allow RISC.",
+      "T one returns to S one.",
+      "Then S one emits exactly the same type of fluorescence photon as before.",
+      "But because the exciton spent time trapped in the triplet state first, that photon appears later.",
+      "Hence delayed fluorescence.",
+      "Importantly, the photon does not come directly from T one.",
+      "The eventual light-producing step is still S one to S zero.",
+      "The delay comes from the excursion through the triplet state.",
+      "So a very useful mental picture is: prompt fluorescence is S one, photon.",
+      "Delayed fluorescence is S one, down to T one, wait, thermally climb back to S one, then photon.",
+      "Or for electrically generated triplets: T one, wait, RISC to S one, then photon."
+    ]
+  },
+  {
+    "slide": 18,
+    "title": "One hundred excitons",
+    "paras": [
+      "This leads to the major efficiency advantage.",
+      "Start with one hundred electrically generated excitons.",
+      "In the simplest statistical picture, roughly twenty-five become singlets and seventy-five become triplets.",
+      "A conventional fluorescent material mainly uses the twenty-five singlets.",
+      "A good TADF emitter can use the original singlets and recycle much of the triplet population through RISC.",
+      "In the ideal limit, essentially all one hundred excitons can contribute to light production.",
+      "That means the internal quantum efficiency can, in principle, approach one hundred percent.",
+      "Internal quantum efficiency means: of the electron-hole pairs that form excitons inside the OLED, what fraction eventually produce photons?"
+    ]
+  },
+  {
+    "slide": 19,
+    "title": "Internal versus external efficiency",
+    "paras": [
+      "But that does not mean one hundred percent of the electrical energy comes out of the front of the screen as visible light.",
+      "Some photons remain trapped inside the OLED because of optical effects, reflection and waveguiding.",
+      "So we distinguish internal quantum efficiency from external quantum efficiency.",
+      "External quantum efficiency asks how many photons actually escape the device per electron passing through it.",
+      "Very roughly: external quantum efficiency equals internal quantum efficiency multiplied by the light-outcoupling efficiency.",
+      "Even an emitter with nearly perfect exciton utilisation can therefore have a much lower external quantum efficiency."
+    ]
+  },
+  {
+    "slide": 20,
+    "title": "Losses and efficiency roll-off",
+    "paras": [
+      "There are also real loss mechanisms.",
+      "Triplet excitons can collide with one another.",
+      "Excitons can interact with charge carriers.",
+      "Energy can be lost non-radiatively as molecular vibration and heat.",
+      "At high electrical currents these processes become increasingly important.",
+      "This contributes to efficiency roll-off, where an OLED performs extremely efficiently at low brightness but becomes less efficient when driven harder.",
+      "Long-lived triplet populations are especially problematic because the longer an exciton remains around, the greater the chance that it encounters another excited state or charge carrier.",
+      "So making RISC fast is not only useful for getting light out quickly.",
+      "It can also reduce the concentration of triplets and suppress destructive interactions.",
+      "This is especially important for device stability."
+    ]
+  },
+  {
+    "slide": 21,
+    "title": "The host matters",
+    "paras": [
+      "The host material around the TADF emitter also matters.",
+      "In many OLEDs, the emitting molecule is not simply deposited as a pure layer. It is dispersed as a guest inside a host material.",
+      "You can imagine the host as the neighbourhood and the TADF molecule as a specialised light-producing house inside that neighbourhood.",
+      "The host helps transport charge, controls how excitations move, prevents molecules from aggregating too strongly and can help confine triplet excitons to the emitter.",
+      "Its excited-state energies therefore need to be chosen carefully.",
+      "If the host has an inappropriate triplet energy, energy may escape from the TADF molecule into the host rather than being converted into useful light.",
+      "So good OLED performance is not just about designing one clever molecule.",
+      "It requires matching the emitter, host, charge-transport layers, electrodes and optical structure."
+    ]
+  },
+  {
+    "slide": 22,
+    "title": "Why blue is hard",
+    "paras": [
+      "There are also colour-specific challenges.",
+      "Remember that photon energy equals h c over lambda.",
+      "Blue photons require more energy than red photons.",
+      "Therefore blue OLED emitters operate using relatively high-energy excited states.",
+      "That tends to make blue devices particularly difficult to stabilise.",
+      "At the same time, molecular designers must maintain a small singlet-triplet gap, good oscillator strength, rapid RISC, good charge transport and chemical stability.",
+      "These requirements can compete against one another.",
+      "That is one reason efficient, stable blue OLED emission has historically been such an important materials challenge."
+    ]
+  },
+  {
+    "slide": 23,
+    "title": "Beyond twisted donor–acceptor molecules",
+    "paras": [
+      "More modern approaches can go beyond the simple strongly twisted donor-acceptor design.",
+      "For example, molecular structures can be engineered so that electron density is separated at the atomic scale while still retaining a relatively rigid structure and strong optical transition.",
+      "The general goal remains the same: control the singlet and triplet wavefunctions so that you simultaneously obtain a small energy gap, good coupling and efficient fluorescence."
+    ]
+  },
+  {
+    "slide": 24,
+    "title": "The whole story",
+    "paras": [
+      "So now step back and look at the complete TADF story from beginning to end.",
+      "We start by applying voltage to an organic semiconductor device.",
+      "The cathode injects electrons and the anode injects holes.",
+      "The carriers travel through organic semiconductor layers.",
+      "An electron and hole meet and form an exciton.",
+      "Because we are coupling two spin-one-half objects, the exciton can be a singlet or a triplet.",
+      "Spin statistics give approximately twenty-five percent singlets and seventy-five percent triplets.",
+      "The singlet excited state can undergo an allowed transition to the singlet ground state and produce fluorescence.",
+      "The triplet cannot easily undergo that same transition because T one to S zero violates the delta-S-equals-zero spin selection rule.",
+      "Ordinary fluorescent OLEDs therefore struggle to use the large triplet population.",
+      "TADF solves the problem by making the singlet and triplet excited states close together in energy.",
+      "Thermal energy can then help move the triplet back up to the singlet through reverse intersystem crossing.",
+      "Once the exciton reaches S one, it emits through the normal S one to S zero fluorescent transition.",
+      "Because the exciton may spend some time inside the triplet state before returning, the resulting emission has a delayed component.",
+      "To reduce the singlet-triplet energy difference, molecular designers reduce the exchange interaction.",
+      "They do this largely by reducing spatial overlap between the HOMO and LUMO, often using donor-acceptor structures.",
+      "But reducing overlap too much can weaken the optical transition, so molecular design becomes a compromise.",
+      "Furthermore, a small energy gap by itself is not sufficient.",
+      "There must also be effective coupling between singlet and triplet states, through mechanisms involving spin-orbit coupling, molecular vibrations and nearby excited states.",
+      "If these ingredients are optimised, TADF can recover triplet excitons and allow nearly all electrically generated excitons to contribute to emission."
+    ]
+  },
+  {
+    "slide": 25,
+    "title": "Quantum engineering",
+    "paras": [
+      "And that is the central significance of TADF.",
+      "It is essentially a piece of quantum engineering.",
+      "We manipulate molecular orbitals to control an exchange interaction.",
+      "That controls the singlet-triplet energy splitting.",
+      "That controls the ability of thermal motion to drive reverse intersystem crossing.",
+      "That allows otherwise unusable triplet excitons to become singlets.",
+      "And that ultimately determines how efficiently electrical energy becomes visible light."
+    ]
+  },
+  {
+    "slide": 26,
+    "title": "One chain to remember",
+    "paras": [
+      "So if you remember only one chain from the entire topic, remember this:",
+      "Voltage creates electrons and holes.",
+      "Electrons and holes create excitons.",
+      "Exciton spin creates singlets and triplets.",
+      "The spin selection rule makes singlets easy to emit from and triplets difficult to emit from.",
+      "TADF makes the singlet-triplet gap small.",
+      "Thermal energy plus spin-state coupling drives RISC.",
+      "RISC converts triplets back into singlets.",
+      "And the singlets produce photons.",
+      "Everything else in TADF OLED physics is essentially about making each step faster, more efficient and more stable."
+    ]
+  }
+]

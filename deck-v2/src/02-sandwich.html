@@ -1,0 +1,77 @@
+<!--meta {"file":"02-sandwich","num":2,"acc":"sing","eyebrow":"I · The device","title":"An OLED is a <em>sandwich</em> of molecules","src":"Schematic multilayer OLED, not to scale","interactive":false} -->
+<div class="row" style="height:100%;gap:56px">
+  <div class="col" style="width:560px;gap:30px;padding-top:6px">
+    <p class="lead rv">Voltage in. Charges move. <span class="c-s">Light</span> out.</p>
+    <div class="col g16 rv" style="--d:.2s">
+      <div class="row g16" style="align-items:center"><span class="chip" style="min-width:196px"><i class="dot-h"></i>Anode</span><span class="p">supplies <span class="c-h">holes</span> (positive)</span></div>
+      <div class="row g16" style="align-items:center"><span class="chip" style="min-width:196px"><i class="dot-e"></i>Cathode</span><span class="p">supplies <span class="c-e">electrons</span></span></div>
+      <div class="row g16" style="align-items:center"><span class="chip" style="min-width:196px"><i class="dot-s"></i>Organic layers</span><span class="p">transport the charges until they meet</span></div>
+    </div>
+    <div class="panel rv" style="--d:.4s">
+      <p class="p" style="font-size:23px">Organic semiconductors are built from <b style="color:var(--ink);font-weight:500">individual molecules</b>, not a continuous crystal. So we think in <span class="c-s">molecular energy levels</span>.</p>
+    </div>
+  </div>
+  <div style="flex:1;position:relative">
+    <svg viewBox="0 0 900 640" width="100%" height="100%" role="img" aria-label="Layered OLED: cathode, electron transport layer, emitting layer, hole transport layer, anode and glass. Electrons move down from the cathode and holes move up from the anode and meet in the emitting layer, which emits light through the glass.">
+      <defs>
+        <linearGradient id="metal" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#9aa8bd"/><stop offset="1" stop-color="#6b7a92"/></linearGradient>
+        <radialGradient id="emlglow" cx=".5" cy=".5" r=".7"><stop offset="0" stop-color="#62e7f4" stop-opacity=".30"/><stop offset="1" stop-color="#62e7f4" stop-opacity=".04"/></radialGradient>
+      </defs>
+      <!-- layers -->
+      <rect x="90" y="14" width="500" height="44" rx="4" fill="url(#metal)"/>
+      <rect x="90" y="58" width="500" height="98" fill="rgba(116,173,255,.13)" stroke="rgba(116,173,255,.35)"/>
+      <rect x="90" y="156" width="500" height="132" fill="url(#emlglow)" stroke="rgba(98,231,244,.55)"/>
+      <rect x="90" y="288" width="500" height="98" fill="rgba(255,147,171,.12)" stroke="rgba(255,147,171,.32)"/>
+      <rect x="90" y="386" width="500" height="40" fill="#4b6288"/>
+      <rect x="90" y="426" width="500" height="44" rx="4" fill="rgba(173,187,210,.10)" stroke="rgba(173,187,210,.3)"/>
+      <!-- labels -->
+      <g class="sv" font-size="20" fill="#f1f6ff">
+        <text x="618" y="42" fill="#cdd6e6">Cathode</text>
+        <text x="618" y="112">Electron transport</text>
+        <text x="618" y="212" fill="#62e7f4" font-weight="600">Emitting layer</text>
+        <text x="618" y="342">Hole transport</text>
+        <text x="618" y="402" fill="#cdd6e6">Anode (ITO)</text>
+        <text x="618" y="460" fill="#8394b0">Glass</text>
+      </g>
+      <g class="sv" font-size="15" fill="#8394b0">
+        <text x="618" y="62">injects electrons</text>
+        <text x="618" y="132">moves electrons in</text>
+        <text x="618" y="236">electrons + holes meet</text>
+        <text x="618" y="362">moves holes in</text>
+        <text x="618" y="424">injects holes</text>
+      </g>
+      <!-- voltage source -->
+      <path d="M90 36 H40 V204 M40 262 V408 H90" fill="none" stroke="#8394b0" stroke-width="2"/>
+      <circle cx="40" cy="233" r="28" fill="#0b1729" stroke="#8394b0" stroke-width="2"/>
+      <text x="40" y="242" text-anchor="middle" class="svs" font-size="30" fill="#f1f6ff">V</text>
+      <text x="14" y="66" class="svs" font-size="34" fill="#74adff">−</text>
+      <text x="12" y="398" class="svs" font-size="34" fill="#ff93ab">+</text>
+      <!-- electrons drifting down -->
+      <g fill="#74adff">
+        <circle class="drift" style="--dy:150px;--T:3.6s;--d:0s" cx="170" cy="72" r="8"/>
+        <circle class="drift" style="--dy:150px;--T:3.6s;--d:1.2s" cx="270" cy="72" r="8"/>
+        <circle class="drift" style="--dy:150px;--T:3.6s;--d:2.4s" cx="370" cy="72" r="8"/>
+        <circle class="drift" style="--dy:150px;--T:3.6s;--d:.6s" cx="470" cy="72" r="8"/>
+        <circle class="drift" style="--dy:150px;--T:3.6s;--d:1.8s" cx="530" cy="72" r="8"/>
+      </g>
+      <!-- holes drifting up -->
+      <g fill="none" stroke="#ff93ab" stroke-width="3">
+        <circle class="drift" style="--dy:-150px;--T:3.6s;--d:.3s" cx="170" cy="372" r="8"/>
+        <circle class="drift" style="--dy:-150px;--T:3.6s;--d:1.5s" cx="270" cy="372" r="8"/>
+        <circle class="drift" style="--dy:-150px;--T:3.6s;--d:2.7s" cx="370" cy="372" r="8"/>
+        <circle class="drift" style="--dy:-150px;--T:3.6s;--d:.9s" cx="470" cy="372" r="8"/>
+        <circle class="drift" style="--dy:-150px;--T:3.6s;--d:2.1s" cx="530" cy="372" r="8"/>
+      </g>
+      <!-- meeting + light -->
+      <g fill="none" stroke="#62e7f4" stroke-width="2.5">
+        <circle class="ripple" style="--d:.9s" cx="230" cy="222" r="30"/>
+        <circle class="ripple" style="--d:2.1s" cx="400" cy="222" r="30"/>
+        <circle class="ripple" style="--d:3s" cx="520" cy="222" r="30"/>
+      </g>
+      <g fill="none" stroke="#9dbdff" stroke-width="3" stroke-linecap="round">
+        <path class="wavy" d="M230 480 V590" /><path class="wavy" d="M330 480 V590" style="animation-delay:-.7s"/><path class="wavy" d="M430 480 V590" style="animation-delay:-1.4s"/><path class="wavy" d="M530 480 V590" style="animation-delay:-.35s"/>
+      </g>
+      <text x="340" y="628" text-anchor="middle" class="sv" font-size="17" fill="#9dbdff">light leaves through the glass</text>
+    </svg>
+  </div>
+</div>

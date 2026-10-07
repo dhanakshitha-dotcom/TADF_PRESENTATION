@@ -1,0 +1,46 @@
+<!--meta {"file":"03-homo-lumo","num":3,"acc":"elec","eyebrow":"I · The device","title":"Two levels matter: <em>HOMO</em> and <em>LUMO</em>","src":"Orbital picture; the emitted photon energy is set by excited-state energies, not the bare orbital gap","interactive":false} -->
+<div class="row" style="height:100%;gap:64px">
+  <div class="col" style="width:600px;gap:26px;padding-top:4px">
+    <div class="panel rv" style="border-color:rgba(116,173,255,.5)">
+      <div class="row g16" style="align-items:baseline"><span class="mid c-e">LUMO</span><span class="lab">lowest unoccupied molecular orbital</span></div>
+      <p class="p" style="margin-top:10px">The molecular version of the <b style="color:var(--ink);font-weight:500">conduction band</b>. An injected <span class="c-e">electron</span> sits here.</p>
+    </div>
+    <div class="panel rv" style="--d:.2s;border-color:rgba(255,147,171,.5)">
+      <div class="row g16" style="align-items:baseline"><span class="mid c-h">HOMO</span><span class="lab">highest occupied molecular orbital</span></div>
+      <p class="p" style="margin-top:10px">The molecular version of the <b style="color:var(--ink);font-weight:500">valence band</b>. A <span class="c-h">hole</span> is an empty state here.</p>
+    </div>
+    <p class="cap rv" style="--d:.4s">Silicon: bands in a crystal. Organics: discrete levels on each molecule.</p>
+  </div>
+  <div style="flex:1;position:relative">
+    <svg viewBox="0 0 740 600" width="100%" height="100%" role="img" aria-label="Energy diagram of one molecule: an electron enters the LUMO, and a hole forms in the HOMO">
+      <!-- energy axis -->
+      <path d="M44 560 V40" stroke="#8394b0" stroke-width="2" marker-end="url(#ah)"/>
+      <defs><marker id="ah" markerWidth="8" markerHeight="8" refX="4" refY="4" orient="auto"><path d="M0 0 L8 4 L0 8 Z" fill="#8394b0"/></marker></defs>
+      <text x="62" y="46" class="sv" font-size="17" fill="#8394b0">ENERGY</text>
+      <!-- LUMO -->
+      <line x1="150" y1="170" x2="610" y2="170" stroke="#74adff" stroke-width="5" stroke-linecap="round"/>
+      <text x="150" y="146" class="sv" font-size="24" font-weight="600" fill="#74adff">LUMO</text>
+      <text x="610" y="146" text-anchor="end" class="sv" font-size="16" fill="#8394b0">≈ conduction band</text>
+      <!-- HOMO -->
+      <line x1="150" y1="440" x2="610" y2="440" stroke="#ff93ab" stroke-width="5" stroke-linecap="round"/>
+      <text x="150" y="486" class="sv" font-size="24" font-weight="600" fill="#ff93ab">HOMO</text>
+      <text x="610" y="486" text-anchor="end" class="sv" font-size="16" fill="#8394b0">≈ valence band</text>
+      <!-- gap -->
+      <path d="M690 190 V420 M690 190 l-8 14 M690 190 l8 14 M690 420 l-8 -14 M690 420 l8 -14" stroke="#8394b0" stroke-width="2" fill="none"/>
+      <text x="690" y="314" text-anchor="middle" class="sv" font-size="15" fill="#8394b0" transform="rotate(-90 690 314)">orbital gap</text>
+      <!-- electron falls into LUMO -->
+      <g>
+        <circle class="drift" style="--dy:112px;--T:3.2s" cx="250" cy="30" r="13" fill="#74adff"/>
+        <circle class="breathe" cx="250" cy="150" r="13" fill="#74adff" opacity=".95"/>
+        <text x="276" y="92" class="sv" font-size="16" fill="#74adff">electron injected</text>
+        <text x="276" y="112" class="sv" font-size="15" fill="#8394b0">from the cathode</text>
+      </g>
+      <!-- HOMO occupants: one electron + a hole -->
+      <circle cx="300" cy="418" r="11" fill="#cdd6e6" opacity=".85"/>
+      <circle class="breathe" cx="360" cy="418" r="11" fill="none" stroke="#ff93ab" stroke-width="4" stroke-dasharray="5 4"/>
+      <text x="395" y="408" class="sv" font-size="16" fill="#ff93ab">hole: a missing electron</text>
+      <path class="flowr" d="M360 560 V446" stroke="#ff93ab" stroke-width="2.5" fill="none"/>
+      <text x="380" y="552" class="sv" font-size="15" fill="#8394b0">hole injected from the anode</text>
+    </svg>
+  </div>
+</div>

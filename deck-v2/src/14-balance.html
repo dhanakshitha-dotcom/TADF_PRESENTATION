@@ -1,0 +1,58 @@
+<!--meta {"file":"14-balance","num":14,"acc":"sing","eyebrow":"IV · Molecular design","title":"The balancing act: <em>not too close, not too far</em>","src":"Illustrative kinetic toy model (k_r = 5×10⁷ x² s⁻¹, E_a = 0.02 + 0.18x² eV, T = 300 K). Not a torsion angle, fitted molecule or universal optimum","interactive":true} -->
+<style>
+.house{display:flex;align-items:center;gap:14px}
+</style>
+<div class="row" style="height:100%;gap:44px">
+  <div class="col" style="width:500px;gap:18px">
+    <p class="lead rv">Two neighbouring houses: too close and the residents <span class="c-t">interact too strongly</span>; too far and they <span class="c-s">cannot communicate</span>.</p>
+    <div class="col g12 rv" style="--d:.15s">
+      <div class="row g16" style="align-items:center"><span class="chip" style="min-width:160px"><i class="dot-t"></i>too close</span><span class="p" style="font-size:22px">large J → large ΔE<sub>ST</sub></span></div>
+      <div class="row g16" style="align-items:center"><span class="chip" style="min-width:160px"><i class="dot-s"></i>just right</span><span class="p" style="font-size:22px">small gap, still bright</span></div>
+      <div class="row g16" style="align-items:center"><span class="chip" style="min-width:160px"><i class="dot-e"></i>too far</span><span class="p" style="font-size:22px">k<sub>r</sub> → 0, weak emission</span></div>
+    </div>
+    <div class="eq rv" style="--d:.3s;font-size:30px;padding:14px 20px"><tex d>k_r\propto\omega^{3}\,\lvert\boldsymbol\mu_{S_0S_1}\rvert^{2}</tex></div>
+    <div class="ctl rv" style="--d:.4s"><span class="lab">Overlap proxy x <b>{{xTxt}}</b></span><input type="range" min="0.05" max="1" step="0.01" value="{{xRaw}}" onInput="{{onX}}" aria-label="Overlap proxy"></div>
+    <div class="row g12 rv" style="--d:.5s;flex-wrap:wrap"><button class="btn" onClick="{{pLow}}">Low overlap</button><button class="btn" onClick="{{pMid}}">Compromise</button><button class="btn" onClick="{{pHigh}}">Full overlap</button></div>
+  </div>
+  <div class="col" style="flex:1;gap:14px">
+    <div class="panel" style="padding:14px 18px">
+      <svg viewBox="0 0 800 420" width="100%" role="img" aria-label="Internal photon yield against overlap proxy; the yield peaks at an intermediate overlap">
+        <text x="70" y="24" class="axl">Internal photon yield (%)</text>
+        <g stroke="#26364f"><line x1="70" y1="40" x2="780" y2="40"/><line x1="70" y1="170" x2="780" y2="170"/><line x1="70" y1="300" x2="780" y2="300"/><line x1="70" y1="340" x2="780" y2="340" stroke="#3a4d6b"/></g>
+        <g class="ax" text-anchor="end"><text x="60" y="344">0</text><text x="60" y="304">25</text><text x="60" y="174">75</text><text x="60" y="44">100</text></g>
+        <g class="ax" text-anchor="middle"><text x="70" y="366">0</text><text x="425" y="366">0.5</text><text x="780" y="366">1.0</text></g>
+        <text x="425" y="400" text-anchor="middle" class="axl">Overlap proxy x   (separated ← → overlapped)</text>
+        <path d="{{curve}}" fill="none" stroke="#62e7f4" stroke-width="4.5" stroke-linejoin="round"/>
+        <line x1="{{mx}}" y1="{{my}}" x2="{{mx}}" y2="340" stroke="#adbbd2" stroke-dasharray="3 6"/>
+        <circle cx="{{mx}}" cy="{{my}}" r="9" fill="#62e7f4"/>
+        <circle cx="{{mx}}" cy="{{my}}" r="16" fill="none" stroke="#62e7f4" stroke-opacity=".4" stroke-width="3"/>
+      </svg>
+    </div>
+    <div class="row g32" style="align-items:flex-end;padding:0 6px">
+      <div class="read c-s">{{yld}}%<small>internal photon yield</small></div>
+      <div class="read" style="font-size:46px;color:var(--mut)">{{ea}}<small>E<sub>a</sub> ≈ ΔE<sub>ST</sub> proxy, eV</small></div>
+      <div class="read" style="font-size:46px;color:var(--mut)">{{krisc}}<small>k<sub>RISC</sub>, s⁻¹</small></div>
+    </div>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  sci(v) { const sp = { '0': '⁰', '1': '¹', '2': '²', '3': '³', '4': '⁴', '5': '⁵', '6': '⁶', '7': '⁷', '8': '⁸', '9': '⁹', '-': '⁻' }; const [m, e] = v.toExponential(1).split('e'); return m + '×10' + String(parseInt(e, 10)).split('').map((ch) => sp[ch]).join(''); }
+  yieldEL(r, kr) { const KS = kr + 5e6 + 1e7; const a = kr / KS, b = 1e7 / KS, q = r / (r + 1e4); return a * (0.25 + 0.75 * q) / (1 - b * q); }
+  design(x) { const ea = 0.02 + 0.18 * x * x; const kr = 5e7 * x * x; const r = 1e8 * Math.exp(-ea / (8.617333262e-5 * 300)); return { ea, kr, r, y: this.yieldEL(r, kr) }; }
+  renderVals() {
+    const x = Math.max(0.05, Math.min(1, this.state.x ?? 0.8));
+    const X = (v) => 70 + v * 710; const Y = (p) => 340 - p * 300;
+    let curve = '';
+    for (let i = 0; i <= 100; i++) { const v = 0.05 + i * 0.95 / 100; curve += (i ? 'L' : 'M') + X(v).toFixed(1) + ' ' + Y(this.design(v).y).toFixed(1) + ' '; }
+    const d = this.design(x);
+    const set = (v) => () => this.setState({ x: v });
+    return {
+      curve: curve.trim(), mx: X(x), my: Y(d.y), xTxt: x.toFixed(2), xRaw: x,
+      yld: (d.y * 100).toFixed(1), ea: d.ea.toFixed(3), krisc: this.sci(d.r),
+      onX: (e) => this.setState({ x: parseFloat(e.target.value) }),
+      pLow: set(0.1), pMid: set(0.8), pHigh: set(1),
+    };
+  }
+}
+</script>

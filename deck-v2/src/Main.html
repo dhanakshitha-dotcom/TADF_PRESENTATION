@@ -1,0 +1,39 @@
+<!--meta {"file":"Main","num":1,"frame":"none","acc":"sing","title":"TADF","docTitle":"TADF: turning dark excitons into light","interactive":false} -->
+<style>
+.td{border-radius:50%;width:100%;aspect-ratio:1;background:var(--sing);box-shadow:0 0 22px rgba(98,231,244,.55)}
+.td.tr{background:var(--trip);box-shadow:none;animation:recover 12s ease-in-out infinite}
+@keyframes recover{0%,38%{background:var(--trip);box-shadow:none;transform:scale(.78)}52%{transform:scale(1.18)}62%,90%{background:var(--sing);box-shadow:0 0 22px rgba(98,231,244,.6);transform:scale(1)}100%{background:var(--trip);box-shadow:none;transform:scale(.78)}}
+.tg{position:absolute;left:934px;top:150px;width:566px;display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:14px}
+</style>
+<div class="eyebrow" style="left:100px;top:92px"><b>PH4040</b><span>The Talk · October 2026</span></div>
+<h1 class="serif rv" style="position:absolute;left:100px;top:190px;width:800px;margin:0;font-size:118px;line-height:1.0;letter-spacing:-.02em">Turning <em style="color:var(--trip)">dark</em> excitons into <em style="color:var(--sing)">light</em></h1>
+<p class="rv" style="--d:.25s;position:absolute;left:100px;top:480px;width:720px;margin:0;font-size:32px;line-height:1.35;color:var(--mut)">Thermally activated delayed fluorescence in organic semiconductors</p>
+<div class="rv row g12" style="--d:.45s;position:absolute;left:100px;top:610px">
+  <span class="chip"><i class="dot-e"></i>quantum spin</span>
+  <span class="chip"><i class="dot-p"></i>molecular design</span>
+  <span class="chip"><i class="dot-s"></i>OLED efficiency</span>
+</div>
+<p class="cap" style="position:absolute;left:100px;bottom:60px">Dhana · Transferable Skills for Physicists · Assignment 2</p>
+<div class="tg">
+  <sc-for list="{{dots}}" as="d" hint-placeholder-count="100"><div class="{{d.cls}}" style="animation-delay: {{d.delay}}"></div></sc-for>
+</div>
+<div class="row g32 fd" style="--d:1s;position:absolute;left:934px;top:742px">
+  <span class="chip"><i class="dot-s"></i>25 singlets</span>
+  <span class="chip"><i class="dot-t"></i>75 triplets, recycled by TADF</span>
+</div>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    // deterministic pseudo-random choice of 25 singlet positions out of 100
+    let seed = 7; const rnd = () => { seed = (seed * 48271) % 2147483647; return seed / 2147483647; };
+    const idx = Array.from({ length: 100 }, (_, i) => i);
+    for (let i = 99; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); const t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+    const sing = new Set(idx.slice(0, 25));
+    const dots = Array.from({ length: 100 }, (_, i) => ({
+      cls: sing.has(i) ? 'td' : 'td tr',
+      delay: sing.has(i) ? '0s' : '-' + (rnd() * 11).toFixed(2) + 's',
+    }));
+    return { dots };
+  }
+}
+</script>

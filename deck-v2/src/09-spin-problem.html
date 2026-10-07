@@ -1,0 +1,34 @@
+<!--meta {"file":"09-spin-problem","num":9,"acc":"trip","eyebrow":"III · The problem","title":"A fluorescent OLED can use only <em>one quarter</em>","src":"Idealised spin counting. Real fluorescent devices can recover some triplets by triplet–triplet fusion (see backup A3)","interactive":false} -->
+<style>
+.pd{aspect-ratio:1;border-radius:50%;background:var(--trip);opacity:.5}
+.pd.s{background:var(--sing);opacity:1;box-shadow:0 0 22px rgba(98,231,244,.65);animation:lit 2.6s ease-in-out infinite;animation-delay:var(--d,0s)}
+.pd.t{animation:pulse 5s ease-in-out infinite;animation-delay:var(--d,0s)}
+.pg{display:grid;grid-template-columns:repeat(10,minmax(0,1fr));gap:12px;width:520px;flex:none}
+</style>
+<div class="row" style="height:100%;gap:72px">
+  <div class="col" style="flex:1;gap:26px;padding-top:6px">
+    <div class="panel rv" style="border-color:rgba(98,231,244,.5)">
+      <div class="row g24" style="align-items:center"><span class="big c-s">25%</span><div class="col g12"><span class="lab c-s">singlets</span><span class="p" style="font-size:24px">S₁ → S₀ is allowed.<br>They make photons.</span></div></div>
+    </div>
+    <div class="panel rv" style="--d:.2s;border-color:rgba(255,192,113,.5)">
+      <div class="row g24" style="align-items:center"><span class="big c-t">75%</span><div class="col g12"><span class="lab c-t">triplets</span><span class="p" style="font-size:24px">T₁ → S₀ is spin-forbidden.<br>They are stranded.</span></div></div>
+    </div>
+    <p class="serif rv" style="--d:.45s;font-size:40px;line-height:1.1;margin:0">A <span class="c-t">spin-statistical</span> problem<br><span class="c-d">that TADF sets out to solve.</span></p>
+  </div>
+  <div class="col" style="align-items:center;justify-content:flex-start;gap:20px">
+    <div class="pg"><sc-for list="{{dots}}" as="d" hint-placeholder-count="100"><div class="{{d.cls}}" style="--d: {{d.delay}}"></div></sc-for></div>
+    <div class="row g16"><span class="chip"><i class="dot-s"></i>emit</span><span class="chip"><i class="dot-t"></i>stranded</span><span class="cap">100 electrically generated excitons</span></div>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    let seed = 23; const rnd = () => { seed = (seed * 48271) % 2147483647; return seed / 2147483647; };
+    const idx = Array.from({ length: 100 }, (_, i) => i);
+    for (let i = 99; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); const t = idx[i]; idx[i] = idx[j]; idx[j] = t; }
+    const sing = new Set(idx.slice(0, 25));
+    const dots = Array.from({ length: 100 }, (_, i) => ({ cls: sing.has(i) ? 'pd s' : 'pd t', delay: (rnd() * 4).toFixed(2) + 's' }));
+    return { dots };
+  }
+}
+</script>

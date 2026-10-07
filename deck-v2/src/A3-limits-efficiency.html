@@ -1,0 +1,22 @@
+<!--meta {"file":"A3-limits-efficiency","num":"A3","acc":"sing","eyebrow":"Backup · Questions","title":"Ideal limits and <em>efficiency bookkeeping</em>","src":"Ideal single-emitting-unit counting limits, not measured performance. Real TTF yield depends on density, pair-state branching and competing losses","docTitle":"Backup: ideal limits and efficiency bookkeeping","interactive":false} -->
+<style>
+.lm{height:34px;border-radius:8px;background:#16253d;overflow:hidden}
+.lm i{display:block;height:100%}
+</style>
+<div class="row" style="height:100%;gap:44px">
+  <div class="col" style="flex:1;gap:16px">
+    <span class="lab c-s">Triplets already have competitors</span>
+    <div class="col g12"><div class="row" style="justify-content:space-between"><span class="p" style="font-size:22px">Singlet-only fluorescence</span><span class="sv" style="font-size:19px">25%</span></div><div class="lm"><i style="width:25%;background:#6b7a92"></i></div></div>
+    <div class="col g12"><div class="row" style="justify-content:space-between"><span class="p" style="font-size:22px">Ideal triplet fusion (TTF)</span><span class="sv" style="font-size:19px">≤ 62.5%</span></div><div class="lm"><i style="width:62.5%;background:var(--trip)"></i></div></div>
+    <div class="col g12"><div class="row" style="justify-content:space-between"><span class="p" style="font-size:22px">Ideal TADF or phosphorescence</span><span class="sv" style="font-size:19px">≤ 100%</span></div><div class="lm"><i style="width:100%;background:var(--sing)"></i></div></div>
+    <div class="eq" style="font-size:28px;padding:16px 18px"><tex d>\eta_{\mathrm{use,max}}^{\mathrm{TTF}}=\tfrac14+\tfrac12\cdot\tfrac34=\tfrac58=62.5\%</tex></div>
+    <p class="p" style="font-size:20px">Two input triplets give one singlet in the ideal limit: the ½ counts inputs per output, not a 50% success chance. Mechanism limits, not a ranking of commercial devices.</p>
+  </div>
+  <div class="col" style="flex:1;gap:16px">
+    <span class="lab c-s">EQE, teaching limits and power</span>
+    <div class="eq" style="font-size:28px;padding:14px 18px;flex-direction:column;gap:6px"><tex d>\mathrm{EQE}=\frac{N_{\gamma,\mathrm{escaped}}}{N_{e,\mathrm{injected}}}\approx\gamma\,\Phi_{\mathrm{EL}}\,\eta_{\mathrm{out}}</tex></div>
+    <div class="eq" style="font-size:26px;padding:14px 18px;flex-direction:column;gap:6px"><tex d>\mathrm{EQE}_{\text{singlet-only}}=1\times0.25\times0.20=5\%</tex><tex d>\mathrm{EQE}_{\text{ideal}}=1\times1\times0.20=20\%</tex></div>
+    <div class="eq" style="font-size:28px;padding:14px 18px"><tex d>\eta_{\mathrm{opt}}\approx\mathrm{EQE}\,\frac{E_\gamma}{e\,V_{\mathrm{drive}}}</tex></div>
+    <p class="p" style="font-size:20px">The 5% and 20% values are teaching limits, not measured phone efficiencies. Φ<sub>EL</sub> already includes branching, ISC/RISC cycling and non-radiative loss, so no separate harvesting factor is multiplied in. For a display decision compare electrical power at matched colour and output.</p>
+  </div>
+</div>

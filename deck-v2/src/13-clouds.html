@@ -1,0 +1,55 @@
+<!--meta {"file":"13-clouds","num":13,"acc":"spin","eyebrow":"IV · Molecular design","title":"Pull the clouds <em>apart</em>","src":"Illustrative toy model: ΔE_ST = 0.02 + 0.18x² eV and k_r ∝ x², where x is an overlap proxy. Not a molecular calculation","interactive":true} -->
+<style>
+.trk{height:18px;border-radius:9px;background:#16253d;overflow:hidden}
+.fl{height:100%;border-radius:9px;transition:width .15s}
+</style>
+<div class="row" style="height:100%;gap:48px">
+  <div class="col" style="width:470px;gap:20px">
+    <p class="lead rv">Put the <span class="c-h">HOMO</span> on a <b style="font-weight:500">donor</b> and the <span class="c-e">LUMO</span> on an <b style="font-weight:500">acceptor</b>, then twist.</p>
+    <div class="ctl rv" style="--d:.15s">
+      <span class="lab">HOMO–LUMO overlap <b>{{ovTxt}}%</b></span>
+      <input type="range" min="5" max="100" step="1" value="{{ovRaw}}" onInput="{{onOv}}" aria-label="Overlap of HOMO and LUMO in percent">
+      <div class="row" style="justify-content:space-between"><span class="cap">separated / twisted</span><span class="cap">on top of each other</span></div>
+    </div>
+    <div class="row g12 rv" style="--d:.25s;flex-wrap:wrap">
+      <button class="btn" onClick="{{pOver}}">Overlapped</button>
+      <button class="btn" onClick="{{pTwist}}">Twisted</button>
+      <button class="btn" onClick="{{pSep}}">Separated</button>
+    </div>
+    <div class="eq rv" style="--d:.35s;font-size:30px;padding:14px 20px"><tex d>\Delta E_{ST}\approx 2J\quad\downarrow\ \text{as overlap}\downarrow</tex></div>
+    <p class="cap rv" style="--d:.45s">Charge-transfer character: excitation moves electron density from donor towards acceptor.</p>
+  </div>
+  <div class="col" style="flex:1;gap:22px">
+    <svg viewBox="0 0 820 290" width="100%" role="img" aria-label="Two orbital clouds, HOMO in rose and LUMO in blue, whose overlap changes with the slider">
+      <ellipse cx="{{cxH}}" cy="150" rx="120" ry="72" fill="rgba(255,147,171,.34)" stroke="#ff93ab" stroke-width="3"/>
+      <ellipse cx="{{cxL}}" cy="150" rx="120" ry="72" fill="rgba(116,173,255,.34)" stroke="#74adff" stroke-width="3"/>
+      <text x="{{lxH}}" y="34" text-anchor="middle" class="sv" font-size="22" font-weight="600" fill="#ff93ab">HOMO</text>
+      <text x="{{lxL}}" y="34" text-anchor="middle" class="sv" font-size="22" font-weight="600" fill="#74adff">LUMO</text>
+      <text x="{{lxH}}" y="56" text-anchor="middle" class="sv" font-size="15" fill="#8394b0">donor</text>
+      <text x="{{lxL}}" y="56" text-anchor="middle" class="sv" font-size="15" fill="#8394b0">acceptor</text>
+    </svg>
+    <div class="col g16">
+      <div class="col g12"><div class="row" style="justify-content:space-between;align-items:baseline"><span class="lab c-t">Singlet–triplet gap ΔE<span style="text-transform:none">ST</span></span><span class="serif" style="font-size:44px"><span class="c-t">{{gap}}</span> <span class="c-d" style="font-size:26px">eV</span></span></div><div class="trk"><div class="fl" style="width: {{gapW}}%;background:var(--trip)"></div></div></div>
+      <div class="col g12"><div class="row" style="justify-content:space-between;align-items:baseline"><span class="lab c-s">Optical transition strength k<span style="text-transform:none">r</span></span><span class="serif" style="font-size:44px"><span class="c-s">{{kr}}</span> <span class="c-d" style="font-size:26px">% of max</span></span></div><div class="trk"><div class="fl" style="width: {{kr}}%;background:var(--sing)"></div></div></div>
+    </div>
+    <p class="p" style="font-size:24px">Less overlap shrinks the gap, <span class="c-t">but it shrinks the emission too.</span> That is the catch.</p>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  renderVals() {
+    const x = Math.max(0.05, Math.min(1, this.state.x ?? 0.8));
+    const d = 230 * (1 - x);
+    const gap = 0.02 + 0.18 * x * x;
+    const kr = 100 * x * x;
+    const set = (v) => () => this.setState({ x: v });
+    return {
+      ovTxt: Math.round(x * 100), ovRaw: Math.round(x * 100),
+      cxH: 410 - d / 2, cxL: 410 + d / 2, lxH: 410 - d / 2 - 40, lxL: 410 + d / 2 + 40,
+      gap: gap.toFixed(3), gapW: (gap / 0.2 * 100).toFixed(1), kr: kr.toFixed(0),
+      onOv: (e) => this.setState({ x: parseFloat(e.target.value) / 100 }),
+      pOver: set(1), pTwist: set(0.5), pSep: set(0.1),
+    };
+  }
+}
+</script>

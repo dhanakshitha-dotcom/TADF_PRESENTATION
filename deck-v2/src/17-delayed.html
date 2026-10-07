@@ -1,0 +1,100 @@
+<!--meta {"file":"17-delayed","num":17,"acc":"sing","eyebrow":"VI · Delayed light","title":"Why <em>delayed</em>? Watch the same pulse twice","src":"Illustrative rate constants: k_r = 5×10⁷, k_ISC = 10⁷, k_nr,S = 5×10⁶, k_nr,T = 10⁴ s⁻¹; k_RISC = 0 (singlet-only reference) vs 10⁶ s⁻¹. Deterministic population model; not a fit to any device","interactive":true} -->
+<div class="row" style="height:100%;gap:36px">
+  <div class="col" style="width:430px;gap:14px">
+    <p class="lead rv" style="font-size:27px">Same 100 excitons, same losses. <b style="font-weight:500" class="c-s">Only RISC changes.</b></p>
+    <div class="eq rv" style="--d:.1s;flex-direction:column;gap:2px;font-size:25px;padding:12px 16px;align-items:flex-start;text-align:left"><span class="lab c-s" style="margin-bottom:2px">prompt</span><tex d>S_1\to h\nu</tex><span class="lab c-t" style="margin-top:6px;margin-bottom:2px">delayed</span><tex d>S_1\to T_1\ \xrightarrow{\ \text{wait, heat}\ }\ S_1\to h\nu</tex></div>
+    <div class="row g12 rv" style="--d:.2s"><button class="btn go" onClick="{{replay}}">Replay pulse</button><button class="btn" onClick="{{finish}}">Skip to end</button></div>
+    <div class="panel rv" style="--d:.3s;padding:14px 18px">
+      <div class="row" style="justify-content:space-between;align-items:baseline"><span class="lab">Time after pulse</span><span class="sv" style="font-size:20px;font-weight:600;color:var(--ink)">{{timeTxt}}</span></div>
+      <div class="row" style="justify-content:space-between;margin-top:8px;align-items:baseline"><span class="chip" style="color: {{phaseCol}}">{{phase}}</span></div>
+      <div class="row g24" style="margin-top:12px">
+        <div class="col" style="gap:2px"><span class="serif" style="font-size:44px;color:var(--mut)">{{refPh}}</span><span class="cap">reference, no RISC</span></div>
+        <div class="col" style="gap:2px"><span class="serif c-s" style="font-size:44px">{{riscPh}}</span><span class="cap">RISC on, photons</span></div>
+      </div>
+    </div>
+    <svg class="rv" style="--d:.4s" viewBox="0 0 400 100" width="400" height="100" role="img" aria-label="Singlet and triplet populations in the RISC-on lane">
+      <circle cx="90" cy="46" r="{{rS}}" fill="#62e7f4" opacity="{{oS}}"/><text x="90" y="92" text-anchor="middle" class="sv" font-size="14" fill="#8394b0">singlet pool</text>
+      <circle cx="290" cy="46" r="{{rT}}" fill="#ffc071" opacity="{{oT}}"/><text x="290" y="92" text-anchor="middle" class="sv" font-size="14" fill="#8394b0">triplet reservoir</text>
+      <path d="M130 40 H250" stroke="#8394b0" stroke-width="2" stroke-dasharray="2 7"/><path d="M250 54 H130" stroke="#8394b0" stroke-width="2" stroke-dasharray="2 7"/>
+    </svg>
+  </div>
+  <div class="col" style="flex:1;gap:10px">
+    <div class="panel" style="padding:10px 14px">
+      <svg viewBox="0 0 880 262" width="100%" role="img" aria-label="Emission intensity against log time: one prompt peak without RISC, a prompt peak and a delayed peak with RISC">
+        <text x="70" y="20" class="axl">Emission per decade of time</text>
+        <g stroke="#26364f"><line x1="70" y1="34" x2="860" y2="34"/><line x1="70" y1="102" x2="860" y2="102"/><line x1="70" y1="170" x2="860" y2="170"/><line x1="70" y1="204" x2="860" y2="204" stroke="#3a4d6b"/></g>
+        <g class="ax" text-anchor="middle"><text x="70" y="226">0.1 ns</text><text x="223" y="226">1 ns</text><text x="333" y="226">10 ns</text><text x="443" y="226">100 ns</text><text x="553" y="226">1 µs</text><text x="663" y="226">10 µs</text><text x="773" y="226">100 µs</text><text x="860" y="226">1 ms</text></g>
+        <text x="465" y="254" text-anchor="middle" class="axl">time after the electrical pulse (log scale)</text>
+        <path d="{{iRef}}" fill="none" stroke="#8394b0" stroke-width="3.5"/>
+        <path d="{{iOn}}" fill="none" stroke="#62e7f4" stroke-width="4.5"/>
+        <line x1="{{cx}}" y1="34" x2="{{cx}}" y2="204" stroke="#adbbd2" stroke-dasharray="3 6"/>
+        <circle cx="{{cx}}" cy="{{iRefY}}" r="6" fill="#8394b0"/><circle cx="{{cx}}" cy="{{iOnY}}" r="7" fill="#62e7f4"/>
+        <text x="236" y="76" class="sv" font-size="16" fill="#adbbd2">prompt</text>
+        <text x="540" y="52" class="sv" font-size="16" fill="#62e7f4">delayed</text>
+        <text x="850" y="58" text-anchor="end" class="sv" font-size="15" fill="#62e7f4">RISC on</text><text x="850" y="80" text-anchor="end" class="sv" font-size="15" fill="#adbbd2">reference, no RISC</text>
+      </svg>
+    </div>
+    <div class="panel" style="padding:10px 14px">
+      <svg viewBox="0 0 880 262" width="100%" role="img" aria-label="Cumulative internal photons against log time">
+        <text x="70" y="20" class="axl">Cumulative internal photons per 100 excitons</text>
+        <g stroke="#26364f"><line x1="70" y1="34" x2="860" y2="34"/><line x1="70" y1="102" x2="860" y2="102"/><line x1="70" y1="170" x2="860" y2="170"/><line x1="70" y1="204" x2="860" y2="204" stroke="#3a4d6b"/></g>
+        <g class="ax" text-anchor="end"><text x="62" y="208">0</text><text x="62" y="174">25</text><text x="62" y="106">75</text><text x="62" y="38">100</text></g>
+        <g class="ax" text-anchor="middle"><text x="70" y="226">0.1 ns</text><text x="333" y="226">10 ns</text><text x="553" y="226">1 µs</text><text x="773" y="226">100 µs</text><text x="860" y="226">1 ms</text></g>
+        <path d="{{fRef}}" fill="none" stroke="#8394b0" stroke-width="3.5"/>
+        <path d="{{fOn}}" fill="none" stroke="#62e7f4" stroke-width="4.5"/>
+        <line x1="{{cx}}" y1="34" x2="{{cx}}" y2="204" stroke="#adbbd2" stroke-dasharray="3 6"/>
+        <circle cx="{{cx}}" cy="{{fRefY}}" r="6" fill="#8394b0"/><circle cx="{{cx}}" cy="{{fOnY}}" r="7" fill="#62e7f4"/>
+        <text x="850" y="{{fRefL}}" text-anchor="end" class="sv" font-size="15" fill="#adbbd2">no RISC: 19</text>
+        <text x="850" y="{{fOnL}}" text-anchor="end" class="sv" font-size="15" fill="#62e7f4">RISC on: 90</text>
+      </svg>
+    </div>
+  </div>
+</div>
+<script>
+class Component extends DCLogic {
+  pulse(t, r) {
+    const a = 6.5e7, d = r + 1e4, c = 1e7, b = r, disc = Math.sqrt((a - d) ** 2 + 4 * b * c), lf = -(a + d + disc) / 2, ls = -(a * d - b * c) / (-lf), den = ls - lf;
+    const A = (-a * 25 + b * 75 - lf * 25) / den, B = 25 - A, U = (c * 25 - d * 75 - lf * 75) / den, V = 75 - U;
+    const S = A * Math.exp(ls * t) + B * Math.exp(lf * t), T = U * Math.exp(ls * t) + V * Math.exp(lf * t);
+    const F = 5e7 * (A * Math.expm1(ls * t) / ls + B * Math.expm1(lf * t) / lf);
+    return { S, T, F };
+  }
+  componentWillUnmount() { cancelAnimationFrame(this._raf); }
+  play() {
+    cancelAnimationFrame(this._raf);
+    const t0 = performance.now(); const DUR = 14000;
+    this.setState({ p: 0 });
+    const step = (now) => {
+      const p = Math.min(1, (now - t0) / DUR);
+      this.setState({ p });
+      if (p < 1) this._raf = requestAnimationFrame(step);
+    };
+    this._raf = requestAnimationFrame(step);
+  }
+  renderVals() {
+    const p = this.state.p ?? 0.55;
+    const lx = -10 + 7 * p; const t = 10 ** lx;
+    if (!this._c) {
+      const X = (v) => 70 + (v + 10) / 7 * 790;
+      const mk = (r, which) => { let d = ''; for (let i = 0; i <= 280; i++) { const v = -10 + i * 7 / 280; const tt = 10 ** v; const q = this.pulse(tt, r); const val = which === 'I' ? Math.LN10 * tt * 5e7 * q.S : q.F; const y = which === 'I' ? 204 - val / 70 * 170 : 204 - val / 100 * 170; d += (i ? 'L' : 'M') + X(v).toFixed(1) + ' ' + Math.max(34, y).toFixed(1) + ' '; } return d.trim(); };
+      this._c = { iRef: mk(0, 'I'), iOn: mk(1e6, 'I'), fRef: mk(0, 'F'), fOn: mk(1e6, 'F') };
+    }
+    const X = (v) => 70 + (v + 10) / 7 * 790;
+    const a = this.pulse(t, 0), b = this.pulse(t, 1e6);
+    const iA = Math.LN10 * t * 5e7 * a.S, iB = Math.LN10 * t * 5e7 * b.S;
+    const Yi = (v) => Math.max(34, 204 - v / 70 * 170); const Yf = (v) => 204 - v / 100 * 170;
+    const fin = p >= 1;
+    const tt = t < 1e-6 ? (t * 1e9).toPrecision(3) + ' ns' : t < 1e-3 ? (t * 1e6).toPrecision(3) + ' µs' : (t * 1e3).toPrecision(3) + ' ms';
+    const prompt = t < 1e-7;
+    return {
+      ...this._c, cx: X(lx),
+      iRefY: Yi(iA), iOnY: Yi(iB), fRefY: Yf(a.F), fOnY: Yf(b.F), fRefL: Yf(a.F) + 26, fOnL: Yf(b.F) - 12,
+      timeTxt: fin ? 'final yield' : tt, phase: fin ? 'all excitons accounted for' : (prompt ? 'prompt window' : 'delayed window'), phaseCol: fin ? '#adbbd2' : (prompt ? '#62e7f4' : '#ffc071'),
+      refPh: a.F.toFixed(1), riscPh: b.F.toFixed(1),
+      rS: (4 + 22 * Math.sqrt(Math.max(0, b.S) / 100)).toFixed(1), rT: (4 + 30 * Math.sqrt(Math.max(0, b.T) / 100)).toFixed(1),
+      oS: b.S > 0.01 ? 1 : 0.15, oT: b.T > 0.01 ? 1 : 0.15,
+      replay: () => this.play(), finish: () => { cancelAnimationFrame(this._raf); this.setState({ p: 1 }); },
+    };
+  }
+}
+</script>
