@@ -49,7 +49,7 @@ const WPM = 150;
 const mmss = (words) => { const s = Math.round(words / WPM * 60); return `${Math.floor(s / 60)}:${String(s % 60).padStart(2, '0')}`; };
 
 const files = fs.readdirSync(SRC).filter((f) => /^(Main|\d\d|A\d)[^/]*\.html$/.test(f) && !f.startsWith('_')).sort();
-const TOTAL_MAIN = 26;
+const TOTAL_MAIN = 23;
 
 const metaOf = (src) => JSON.parse(src.match(/^<!--meta\s*([\s\S]*?)-->/)[1]);
 
@@ -87,7 +87,6 @@ for (const f of files) {
     frame = `<div class="sl" style="--acc:var(--${meta.acc || 'sing'})">\n${body}\n</div>`;
   } else {
     frame = `<div class="sl" style="--acc:var(--${meta.acc || 'sing'})">
-<div class="eyebrow"><b>${numLabel}</b><span>${meta.eyebrow}</span></div>
 <h1 class="hd">${meta.title}</h1>
 <div class="mn">
 ${body}
@@ -139,8 +138,7 @@ const ROWS = [
   ['III · Triplets are wasted. TADF’s answer', ['09', '10', '11', '12']],
   ['IV · Molecular design: gap, overlap, coupling', ['13', '14', '15', '16']],
   ['V · Delayed light, efficiency and losses', ['17', '18', '19', '20']],
-  ['VI · Host, colour, and the whole story', ['21', '22', '23', '24']],
-  ['VII · Synthesis', ['25', '26']],
+  ['VI · Synthesis', ['21', '22', '23']],
   ['Backup · for questions', ['A1', 'A2', 'A3', 'A4', 'A5']],
 ];
 const W = 1600, H = 900, GX = 1680, ROWPITCH = 1800;
@@ -180,7 +178,7 @@ for (const [rowTitle, keys] of ROWS) {
 }
 notes['readme'] = {
   x: 0, y: startY - 250 - 520, w: 1600, maxH: 420, size: 22, fill: 'teal',
-  text: `HOW TO USE THIS DECK\nEach slide has its script passage directly beneath it. “▸” marks the core path for a 12–15 minute talk; unmarked paragraphs are the full script.\n\nFull script ≈ ${fullTotal} words ≈ ${mmss(fullTotal)} at ${WPM} wpm. Core path ≈ ${coreTotal.words} words ≈ ${mmss(coreTotal.words)} before the simulations. Slides 21–24 are extended material.\n\nInteractive slides carry the blue mark: open them with Play and use the buttons and sliders. Equations are typeset; model curves are illustrative, not fitted data.`,
+  text: `HOW TO USE THIS DECK\nEach slide has its script passage directly beneath it. “▸” marks the core path for a 12–15 minute talk; unmarked paragraphs are the full script.\n\nFull script ≈ ${fullTotal} words ≈ ${mmss(fullTotal)} at ${WPM} wpm. Core path ≈ ${coreTotal.words} words ≈ ${mmss(coreTotal.words)} before the simulations. Slide 21 (the recap) is extended material.\n\nInteractive slides carry the blue mark: open them with Play and use the buttons and sliders. Equations are typeset; model curves are illustrative, not fitted data.`,
 };
 
 const canvas = {

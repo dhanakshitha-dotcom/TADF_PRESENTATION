@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<title>One chain to remember</title>
+<title>The whole story, start to finish</title>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -99,37 +99,31 @@ input[type=range]{accent-color:var(--sing);width:100%;height:30px;margin:0;curso
 
 
 
-.ch{position:relative;padding-left:56px}
-.ch::before{content:"";position:absolute;left:19px;top:14px;bottom:30px;width:2px;background:linear-gradient(var(--line),var(--sing))}
-.cr{position:relative;font:400 41px/1.0 'Instrument Serif',Georgia,serif;letter-spacing:-.005em;padding:9px 0;color:var(--ink)}
-.cr::before{content:"";position:absolute;left:-44px;top:21px;width:14px;height:14px;border-radius:50%;background:var(--bg);border:2px solid var(--dim)}
-.cr.last::before{background:var(--sing);border-color:var(--sing);box-shadow:0 0 16px rgba(98,231,244,.8)}
-.cr .k{font:500 14px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.12em;color:var(--dim);margin-right:16px;vertical-align:middle}
+.st{padding:18px 20px 18px;border:1px solid var(--line);border-radius:16px;background:var(--panel);display:flex;flex-direction:column;gap:8px;min-height:272px}
+.st h3{margin:0;font:400 36px/1.05 'Instrument Serif',Georgia,serif}
+.st p{margin:0;font-size:20px;line-height:1.4;color:var(--mut)}
+.st .no{font:500 15px/1 'Geist Mono',ui-monospace,monospace;letter-spacing:.14em;color:var(--dim)}
+.st svg{width:64px;height:64px}
+.sg{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
 
 </style>
 </helmet>
 <div class="sl" style="--acc:var(--sing)">
-<div class="eyebrow"><b>26</b><span>VIII · Synthesis</span></div>
-<h1 class="hd">One chain to <em>remember</em></h1>
+<h1 class="hd">The whole story, <em>start to finish</em></h1>
 <div class="mn">
-<svg class="fd" style="--d:2.2s;position:absolute;right:20px;top:20px" viewBox="0 0 360 360" width="360" height="360" aria-hidden="true">
-  <g fill="none" stroke="#62e7f4" stroke-width="2.5"><circle class="ripple" style="--d:0s" cx="180" cy="180" r="120"/><circle class="ripple" style="--d:.9s" cx="180" cy="180" r="120"/><circle class="ripple" style="--d:1.8s" cx="180" cy="180" r="120"/></g>
-  <circle cx="180" cy="180" r="44" fill="rgba(98,231,244,.9)" style="filter:drop-shadow(0 0 30px rgba(98,231,244,.8))"/>
-</svg>
-<div class="ch">
-  <div class="cr seq" style="--d:0s"><span class="k">01</span><span class="c-e">Voltage</span> creates electrons and holes.</div>
-  <div class="cr seq" style="--d:.35s"><span class="k">02</span>Electrons and holes create <span class="c-h">excitons</span>.</div>
-  <div class="cr seq" style="--d:.7s"><span class="k">03</span>Exciton <span class="c-p">spin</span> creates singlets and triplets.</div>
-  <div class="cr seq" style="--d:1.05s"><span class="k">04</span>The spin selection rule: <span class="c-s">singlets</span> emit easily, <span class="c-t">triplets</span> don’t.</div>
-  <div class="cr seq" style="--d:1.4s"><span class="k">05</span>TADF makes the singlet–triplet <span class="c-s">gap small</span>.</div>
-  <div class="cr seq" style="--d:1.75s"><span class="k">06</span>Thermal energy plus spin-state coupling drives <span class="c-p">RISC</span>.</div>
-  <div class="cr seq" style="--d:2.1s"><span class="k">07</span>RISC converts triplets back into singlets.</div>
-  <div class="cr last seq" style="--d:2.45s"><span class="k">08</span>And the singlets produce <span class="c-s">photons</span>.</div>
+<div class="sg">
+  <div class="st seq" style="--d:.0s"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">01</span><svg viewBox="0 0 64 64"><rect x="8" y="10" width="48" height="8" rx="2" fill="#9aa8bd"/><rect x="8" y="22" width="48" height="10" fill="rgba(116,173,255,.4)"/><rect x="8" y="34" width="48" height="10" fill="rgba(98,231,244,.4)"/><rect x="8" y="46" width="48" height="10" fill="rgba(255,147,171,.4)"/></svg></div><h3>Voltage in</h3><p>Electrons from the cathode, holes from the anode, moving through organic layers.</p></div>
+  <div class="st seq" style="--d:.15s"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">02</span><svg viewBox="0 0 64 64"><circle cx="24" cy="32" r="11" fill="none" stroke="#ff93ab" stroke-width="3" stroke-dasharray="4 3"/><circle cx="44" cy="32" r="8" fill="#74adff"/></svg></div><h3>Exciton</h3><p>An electron and a hole bind into a loose artificial atom.</p></div>
+  <div class="st seq" style="--d:.3s"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">03</span><svg viewBox="0 0 64 64"><rect x="4" y="26" width="14" height="12" rx="3" fill="#62e7f4"/><rect x="21" y="26" width="39" height="12" rx="3" fill="#ffc071"/></svg></div><h3>Spin statistics</h3><p>Two spin-½ objects: 1 singlet and 3 triplets, so 25 : 75.</p></div>
+  <div class="st seq" style="--d:.45s"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">04</span><svg viewBox="0 0 64 64"><line x1="8" y1="14" x2="28" y2="14" stroke="#62e7f4" stroke-width="3"/><line x1="36" y1="20" x2="56" y2="20" stroke="#ffc071" stroke-width="3"/><line x1="8" y1="54" x2="56" y2="54" stroke="#8394b0" stroke-width="3"/><path d="M18 18 V50" stroke="#62e7f4" stroke-width="3"/><path d="M46 26 V50" stroke="#ffc071" stroke-width="3" stroke-dasharray="3 4"/><path d="M41 31 l10 10 M51 31 l-10 10" stroke="#ff7d7d" stroke-width="3"/></svg></div><h3>The spin lock</h3><p>S₁ → S₀ is allowed. T₁ → S₀ breaks ΔS = 0, so triplets are stranded.</p></div>
+  <div class="st seq" style="--d:.6s"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">05</span><svg viewBox="0 0 64 64"><circle cx="22" cy="32" r="14" fill="rgba(255,147,171,.4)" stroke="#ff93ab" stroke-width="2"/><circle cx="44" cy="32" r="14" fill="rgba(116,173,255,.4)" stroke="#74adff" stroke-width="2"/></svg></div><h3>Small gap</h3><p>Separate HOMO and LUMO to cut exchange, but not so far that emission dies.</p></div>
+  <div class="st seq" style="--d:.75s"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">06</span><svg viewBox="0 0 64 64"><line x1="6" y1="50" x2="30" y2="50" stroke="#ffc071" stroke-width="3"/><line x1="34" y1="22" x2="58" y2="22" stroke="#62e7f4" stroke-width="3"/><path d="M18 46 C18 32 28 26 32 26" fill="none" stroke="#c9a8ff" stroke-width="3"/><path d="M28 21 l6 5 -7 3" fill="none" stroke="#c9a8ff" stroke-width="3"/></svg></div><h3>RISC</h3><p>Heat plus spin–orbit and vibronic coupling lift T₁ back up to S₁.</p></div>
+  <div class="st seq" style="--d:.9s"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">07</span><svg viewBox="0 0 64 64"><path d="M4 32 q7 -18 14 0 t14 0 t14 0 t14 0" fill="none" stroke="#9dfaff" stroke-width="3.5" stroke-linecap="round"/></svg></div><h3>Delayed light</h3><p>S₁ → S₀ fluoresces as before, now with a delayed component.</p></div>
+  <div class="st seq" style="--d:1.05s;border-color:rgba(98,231,244,.5)"><div class="row" style="justify-content:space-between;align-items:center"><span class="no">08</span><svg viewBox="0 0 64 64"><g fill="#62e7f4"><circle cx="52" cy="32" r="5"/><circle cx="46" cy="46" r="5"/><circle cx="32" cy="52" r="5"/><circle cx="18" cy="46" r="5"/><circle cx="12" cy="32" r="5"/><circle cx="18" cy="18" r="5"/><circle cx="32" cy="12" r="5"/><circle cx="46" cy="18" r="5"/></g></svg></div><h3 class="c-s">Nearly all excitons</h3><p>Ideal limit: IQE → 100%. Outcoupling, losses and the host still matter.</p></div>
 </div>
-<p class="p seq" style="--d:2.9s;margin:20px 0 0 56px;font-size:25px">Everything else in TADF OLED physics is about making each step <b style="color:var(--ink);font-weight:500">faster, more efficient and more stable</b>.</p>
 </div>
-<div class="foot"><span>Every step can be made faster, more efficient and more stable. That is the engineering</span><span>26 / 26</span></div>
-<div class="bar" style="width:100.00%"></div>
+<div class="foot"><span></span><span>21 / 23</span></div>
+<div class="bar" style="width:91.30%"></div>
 </div>
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1600,"height":900}}'>

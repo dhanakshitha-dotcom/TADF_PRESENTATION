@@ -2,7 +2,7 @@
  "v": 3,
  "createdOnFiles": {
   "v": 1,
-  "at": "2026-10-07T13:49:14Z"
+  "at": "2026-10-10T11:30:42Z"
  },
  "title": "TADF: A Better Blue Pixel",
  "launch": {
@@ -160,79 +160,58 @@
    "title": "20 · Drive it harder: efficiency roll-off",
    "is_interactive": true
   },
-  "21-host.dc.html": {
+  "21-whole-story.dc.html": {
    "x": 0,
    "y": 9330,
    "w": 1600,
    "h": 900,
-   "title": "21 · The host matters: match the neighbourhood"
+   "title": "21 · The whole story, start to finish"
   },
-  "22-blue.dc.html": {
+  "22-quantum-engineering.dc.html": {
    "x": 1680,
    "y": 9330,
    "w": 1600,
    "h": 900,
-   "title": "22 · Why blue is hard"
+   "title": "22 · A piece of quantum engineering"
   },
-  "23-beyond.dc.html": {
+  "23-one-chain.dc.html": {
    "x": 3360,
    "y": 9330,
    "w": 1600,
    "h": 900,
-   "title": "23 · Beyond the twisted donor–acceptor"
-  },
-  "24-whole-story.dc.html": {
-   "x": 5040,
-   "y": 9330,
-   "w": 1600,
-   "h": 900,
-   "title": "24 · The whole story, start to finish"
-  },
-  "25-quantum-engineering.dc.html": {
-   "x": 0,
-   "y": 11130,
-   "w": 1600,
-   "h": 900,
-   "title": "25 · A piece of quantum engineering"
-  },
-  "26-one-chain.dc.html": {
-   "x": 1680,
-   "y": 11130,
-   "w": 1600,
-   "h": 900,
-   "title": "26 · One chain to remember"
+   "title": "23 · One chain to remember"
   },
   "A1-spin-algebra.dc.html": {
    "x": 0,
-   "y": 12930,
+   "y": 11130,
    "w": 1600,
    "h": 900,
    "title": "A1 · Backup: spin states and the selection rule"
   },
   "A2-exchange-rates.dc.html": {
    "x": 1680,
-   "y": 12930,
+   "y": 11130,
    "w": 1600,
    "h": 900,
    "title": "A2 · Backup: exchange, activation and rate equations"
   },
   "A3-limits-efficiency.dc.html": {
    "x": 3360,
-   "y": 12930,
+   "y": 11130,
    "w": 1600,
    "h": 900,
    "title": "A3 · Backup: ideal limits and efficiency bookkeeping"
   },
   "A4-evidence.dc.html": {
    "x": 5040,
-   "y": 12930,
+   "y": 11130,
    "w": 1600,
    "h": 900,
    "title": "A4 · Backup: product evidence by stage"
   },
   "A5-sources.dc.html": {
    "x": 6720,
-   "y": 12930,
+   "y": 11130,
    "w": 1600,
    "h": 900,
    "title": "A5 · Backup: sources and credits"
@@ -259,12 +238,9 @@
   "18-hundred.dc.html",
   "19-eqe.dc.html",
   "20-rolloff.dc.html",
-  "21-host.dc.html",
-  "22-blue.dc.html",
-  "23-beyond.dc.html",
-  "24-whole-story.dc.html",
-  "25-quantum-engineering.dc.html",
-  "26-one-chain.dc.html",
+  "21-whole-story.dc.html",
+  "22-quantum-engineering.dc.html",
+  "23-one-chain.dc.html",
   "A1-spin-algebra.dc.html",
   "A2-exchange-rates.dc.html",
   "A3-limits-efficiency.dc.html",
@@ -490,14 +466,14 @@
   "row5": {
    "x": 0,
    "y": 9080,
-   "text": "VI · Host, colour, and the whole story",
+   "text": "VI · Synthesis",
    "kind": "title1",
-   "maxW": 6640
+   "maxW": 4960
   },
   "s21": {
    "x": 0,
    "y": 10278,
-   "text": "SCRIPT · SLIDE 21 · THE HOST MATTERS\nEXTENDED SLIDE — skipped in the short version   |   FULL 135 w · 0:54\n\n   The host material around the TADF emitter also matters.\n   In many OLEDs, the emitting molecule is not simply deposited as a pure layer. It is dispersed as a guest inside a host material.\n   You can imagine the host as the neighbourhood and the TADF molecule as a specialised light-producing house inside that neighbourhood.\n   The host helps transport charge, controls how excitations move, prevents molecules from aggregating too strongly and can help confine triplet excitons to the emitter.\n   Its excited-state energies therefore need to be chosen carefully.\n   If the host has an inappropriate triplet energy, energy may escape from the TADF molecule into the host rather than being converted into useful light.\n   So good OLED performance is not just about designing one clever molecule.\n   It requires matching the emitter, host, charge-transport layers, electrodes and optical structure.",
+   "text": "SCRIPT · SLIDE 21 · THE WHOLE STORY\nEXTENDED SLIDE — skipped in the short version   |   FULL 294 w · 1:58\n\n   So now step back and look at the complete TADF story from beginning to end.\n   We start by applying voltage to an organic semiconductor device.\n   The cathode injects electrons and the anode injects holes.\n   The carriers travel through organic semiconductor layers.\n   An electron and hole meet and form an exciton.\n   Because we are coupling two spin-one-half objects, the exciton can be a singlet or a triplet.\n   Spin statistics give approximately twenty-five percent singlets and seventy-five percent triplets.\n   The singlet excited state can undergo an allowed transition to the singlet ground state and produce fluorescence.\n   The triplet cannot easily undergo that same transition because T one to S zero violates the delta-S-equals-zero spin selection rule.\n   Ordinary fluorescent OLEDs therefore struggle to use the large triplet population.\n   TADF solves the problem by making the singlet and triplet excited states close together in energy.\n   Thermal energy can then help move the triplet back up to the singlet through reverse intersystem crossing.\n   Once the exciton reaches S one, it emits through the normal S one to S zero fluorescent transition.\n   Because the exciton may spend some time inside the triplet state before returning, the resulting emission has a delayed component.\n   To reduce the singlet-triplet energy difference, molecular designers reduce the exchange interaction.\n   They do this largely by reducing spatial overlap between the HOMO and LUMO, often using donor-acceptor structures.\n   But reducing overlap too much can weaken the optical transition, so molecular design becomes a compromise.\n   Furthermore, a small energy gap by itself is not sufficient.\n   There must also be effective coupling between singlet and triplet states, through mechanisms involving spin-orbit coupling, molecular vibrations and nearby excited states.\n   If these ingredients are optimised, TADF can recover triplet excitons and allow nearly all electrically generated excitons to contribute to emission.",
    "w": 1600,
    "maxH": 420,
    "size": 22,
@@ -506,7 +482,7 @@
   "s22": {
    "x": 1680,
    "y": 10278,
-   "text": "SCRIPT · SLIDE 22 · WHY BLUE IS HARD\nEXTENDED SLIDE — skipped in the short version   |   FULL 89 w · 0:36\n\n   There are also colour-specific challenges.\n   Remember that photon energy equals h c over lambda.\n   Blue photons require more energy than red photons.\n   Therefore blue OLED emitters operate using relatively high-energy excited states.\n   That tends to make blue devices particularly difficult to stabilise.\n   At the same time, molecular designers must maintain a small singlet-triplet gap, good oscillator strength, rapid RISC, good charge transport and chemical stability.\n   These requirements can compete against one another.\n   That is one reason efficient, stable blue OLED emission has historically been such an important materials challenge.",
+   "text": "SCRIPT · SLIDE 22 · QUANTUM ENGINEERING\nCORE 55 w · 0:22   |   FULL 63 w · 0:25\n\n   And that is the central significance of TADF.\n▸ It is essentially a piece of quantum engineering.\n▸ We manipulate molecular orbitals to control an exchange interaction.\n▸ That controls the singlet-triplet energy splitting.\n▸ That controls the ability of thermal motion to drive reverse intersystem crossing.\n▸ That allows otherwise unusable triplet excitons to become singlets.\n▸ And that ultimately determines how efficiently electrical energy becomes visible light.",
    "w": 1600,
    "maxH": 420,
    "size": 22,
@@ -515,16 +491,7 @@
   "s23": {
    "x": 3360,
    "y": 10278,
-   "text": "SCRIPT · SLIDE 23 · BEYOND TWISTED DONOR–ACCEPTOR MOLECULES\nEXTENDED SLIDE — skipped in the short version   |   FULL 66 w · 0:26\n\n   More modern approaches can go beyond the simple strongly twisted donor-acceptor design.\n   For example, molecular structures can be engineered so that electron density is separated at the atomic scale while still retaining a relatively rigid structure and strong optical transition.\n   The general goal remains the same: control the singlet and triplet wavefunctions so that you simultaneously obtain a small energy gap, good coupling and efficient fluorescence.",
-   "w": 1600,
-   "maxH": 420,
-   "size": 22,
-   "fill": "gray"
-  },
-  "s24": {
-   "x": 5040,
-   "y": 10278,
-   "text": "SCRIPT · SLIDE 24 · THE WHOLE STORY\nEXTENDED SLIDE — skipped in the short version   |   FULL 294 w · 1:58\n\n   So now step back and look at the complete TADF story from beginning to end.\n   We start by applying voltage to an organic semiconductor device.\n   The cathode injects electrons and the anode injects holes.\n   The carriers travel through organic semiconductor layers.\n   An electron and hole meet and form an exciton.\n   Because we are coupling two spin-one-half objects, the exciton can be a singlet or a triplet.\n   Spin statistics give approximately twenty-five percent singlets and seventy-five percent triplets.\n   The singlet excited state can undergo an allowed transition to the singlet ground state and produce fluorescence.\n   The triplet cannot easily undergo that same transition because T one to S zero violates the delta-S-equals-zero spin selection rule.\n   Ordinary fluorescent OLEDs therefore struggle to use the large triplet population.\n   TADF solves the problem by making the singlet and triplet excited states close together in energy.\n   Thermal energy can then help move the triplet back up to the singlet through reverse intersystem crossing.\n   Once the exciton reaches S one, it emits through the normal S one to S zero fluorescent transition.\n   Because the exciton may spend some time inside the triplet state before returning, the resulting emission has a delayed component.\n   To reduce the singlet-triplet energy difference, molecular designers reduce the exchange interaction.\n   They do this largely by reducing spatial overlap between the HOMO and LUMO, often using donor-acceptor structures.\n   But reducing overlap too much can weaken the optical transition, so molecular design becomes a compromise.\n   Furthermore, a small energy gap by itself is not sufficient.\n   There must also be effective coupling between singlet and triplet states, through mechanisms involving spin-orbit coupling, molecular vibrations and nearby excited states.\n   If these ingredients are optimised, TADF can recover triplet excitons and allow nearly all electrically generated excitons to contribute to emission.",
+   "text": "SCRIPT · SLIDE 23 · ONE CHAIN TO REMEMBER\nCORE 87 w · 0:35   |   FULL 87 w · 0:35\n\n▸ So if you remember only one chain from the entire topic, remember this:\n▸ Voltage creates electrons and holes.\n▸ Electrons and holes create excitons.\n▸ Exciton spin creates singlets and triplets.\n▸ The spin selection rule makes singlets easy to emit from and triplets difficult to emit from.\n▸ TADF makes the singlet-triplet gap small.\n▸ Thermal energy plus spin-state coupling drives RISC.\n▸ RISC converts triplets back into singlets.\n▸ And the singlets produce photons.\n▸ Everything else in TADF OLED physics is essentially about making each step faster, more efficient and more stable.",
    "w": 1600,
    "maxH": 420,
    "size": 22,
@@ -533,31 +500,6 @@
   "row6": {
    "x": 0,
    "y": 10880,
-   "text": "VII · Synthesis",
-   "kind": "title1",
-   "maxW": 3280
-  },
-  "s25": {
-   "x": 0,
-   "y": 12078,
-   "text": "SCRIPT · SLIDE 25 · QUANTUM ENGINEERING\nCORE 55 w · 0:22   |   FULL 63 w · 0:25\n\n   And that is the central significance of TADF.\n▸ It is essentially a piece of quantum engineering.\n▸ We manipulate molecular orbitals to control an exchange interaction.\n▸ That controls the singlet-triplet energy splitting.\n▸ That controls the ability of thermal motion to drive reverse intersystem crossing.\n▸ That allows otherwise unusable triplet excitons to become singlets.\n▸ And that ultimately determines how efficiently electrical energy becomes visible light.",
-   "w": 1600,
-   "maxH": 420,
-   "size": 22,
-   "fill": "gray"
-  },
-  "s26": {
-   "x": 1680,
-   "y": 12078,
-   "text": "SCRIPT · SLIDE 26 · ONE CHAIN TO REMEMBER\nCORE 87 w · 0:35   |   FULL 87 w · 0:35\n\n▸ So if you remember only one chain from the entire topic, remember this:\n▸ Voltage creates electrons and holes.\n▸ Electrons and holes create excitons.\n▸ Exciton spin creates singlets and triplets.\n▸ The spin selection rule makes singlets easy to emit from and triplets difficult to emit from.\n▸ TADF makes the singlet-triplet gap small.\n▸ Thermal energy plus spin-state coupling drives RISC.\n▸ RISC converts triplets back into singlets.\n▸ And the singlets produce photons.\n▸ Everything else in TADF OLED physics is essentially about making each step faster, more efficient and more stable.",
-   "w": 1600,
-   "maxH": 420,
-   "size": 22,
-   "fill": "gray"
-  },
-  "row7": {
-   "x": 0,
-   "y": 12680,
    "text": "Backup · for questions",
    "kind": "title1",
    "maxW": 8320
@@ -569,7 +511,7 @@
    "maxH": 420,
    "size": 22,
    "fill": "teal",
-   "text": "HOW TO USE THIS DECK\nEach slide has its script passage directly beneath it. “▸” marks the core path for a 12–15 minute talk; unmarked paragraphs are the full script.\n\nFull script ≈ 3317 words ≈ 22:07 at 150 wpm. Core path ≈ 1913 words ≈ 12:45 before the simulations. Slides 21–24 are extended material.\n\nInteractive slides carry the blue mark: open them with Play and use the buttons and sliders. Equations are typeset; model curves are illustrative, not fitted data."
+   "text": "HOW TO USE THIS DECK\nEach slide has its script passage directly beneath it. “▸” marks the core path for a 12–15 minute talk; unmarked paragraphs are the full script.\n\nFull script ≈ 3027 words ≈ 20:11 at 150 wpm. Core path ≈ 1913 words ≈ 12:45 before the simulations. Slide 21 (the recap) is extended material.\n\nInteractive slides carry the blue mark: open them with Play and use the buttons and sliders. Equations are typeset; model curves are illustrative, not fitted data."
   }
  },
  "designSystems": []

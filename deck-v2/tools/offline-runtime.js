@@ -107,8 +107,8 @@ addEventListener('keydown', (e) => {
   if (tag === 'BUTTON' && k === ' ') return;
   if (k === 'ArrowRight' || k === ' ' || k === 'PageDown') { e.preventDefault(); go(cur + 1); }
   else if (k === 'ArrowLeft' || k === 'PageUp') { e.preventDefault(); go(cur - 1); }
-  else if (k === 'Home') go(0); else if (k === 'End') go(25);
-  else if (k === 'b' || k === 'B') go(26);
+  else if (k === 'Home') go(0); else if (k === 'End') go(22);
+  else if (k === 'b' || k === 'B') go(23);
   else if (k === 'n' || k === 'N') toggleNotes(); else if (k === 'c' || k === 'C') toggleCore(); else if (k === 'f' || k === 'F') toggleFull();
   else if (k === 'Escape') notes.classList.remove('open');
 });

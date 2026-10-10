@@ -404,51 +404,7 @@ So making RISC fast is not only useful for getting light out quickly.
 
 This is especially important for device stability.
 
-## Slide 21 — The host matters
-
-The host material around the TADF emitter also matters.
-
-In many OLEDs, the emitting molecule is not simply deposited as a pure layer. It is dispersed as a guest inside a host material.
-
-You can imagine the host as the neighbourhood and the TADF molecule as a specialised light-producing house inside that neighbourhood.
-
-The host helps transport charge, controls how excitations move, prevents molecules from aggregating too strongly and can help confine triplet excitons to the emitter.
-
-Its excited-state energies therefore need to be chosen carefully.
-
-If the host has an inappropriate triplet energy, energy may escape from the TADF molecule into the host rather than being converted into useful light.
-
-So good OLED performance is not just about designing one clever molecule.
-
-It requires matching the emitter, host, charge-transport layers, electrodes and optical structure.
-
-## Slide 22 — Why blue is hard
-
-There are also colour-specific challenges.
-
-Remember that photon energy equals h c over lambda.
-
-Blue photons require more energy than red photons.
-
-Therefore blue OLED emitters operate using relatively high-energy excited states.
-
-That tends to make blue devices particularly difficult to stabilise.
-
-At the same time, molecular designers must maintain a small singlet-triplet gap, good oscillator strength, rapid RISC, good charge transport and chemical stability.
-
-These requirements can compete against one another.
-
-That is one reason efficient, stable blue OLED emission has historically been such an important materials challenge.
-
-## Slide 23 — Beyond twisted donor–acceptor molecules
-
-More modern approaches can go beyond the simple strongly twisted donor-acceptor design.
-
-For example, molecular structures can be engineered so that electron density is separated at the atomic scale while still retaining a relatively rigid structure and strong optical transition.
-
-The general goal remains the same: control the singlet and triplet wavefunctions so that you simultaneously obtain a small energy gap, good coupling and efficient fluorescence.
-
-## Slide 24 — The whole story
+## Slide 21 — The whole story
 
 So now step back and look at the complete TADF story from beginning to end.
 
@@ -490,7 +446,7 @@ There must also be effective coupling between singlet and triplet states, throug
 
 If these ingredients are optimised, TADF can recover triplet excitons and allow nearly all electrically generated excitons to contribute to emission.
 
-## Slide 25 — Quantum engineering
+## Slide 22 — Quantum engineering
 
 And that is the central significance of TADF.
 
@@ -506,7 +462,7 @@ And that is the central significance of TADF.
 
 ▸ And that ultimately determines how efficiently electrical energy becomes visible light.
 
-## Slide 26 — One chain to remember
+## Slide 23 — One chain to remember
 
 ▸ So if you remember only one chain from the entire topic, remember this:
 
