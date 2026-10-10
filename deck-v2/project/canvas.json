@@ -1,8 +1,8 @@
 {
  "v": 3,
  "createdOnFiles": {
-  "v": 1,
-  "at": "2026-10-10T11:30:42Z"
+  "at": "2026-10-07T12:29:24Z",
+  "v": 1
  },
  "title": "TADF: A Better Blue Pixel",
  "launch": {
@@ -514,5 +514,6 @@
    "text": "HOW TO USE THIS DECK\nEach slide has its script passage directly beneath it. “▸” marks the core path for a 12–15 minute talk; unmarked paragraphs are the full script.\n\nFull script ≈ 3027 words ≈ 20:11 at 150 wpm. Core path ≈ 1913 words ≈ 12:45 before the simulations. Slide 21 (the recap) is extended material.\n\nInteractive slides carry the blue mark: open them with Play and use the buttons and sliders. Equations are typeset; model curves are illustrative, not fitted data."
   }
  },
- "designSystems": []
+ "designSystems": [],
+ "attachments": {}
 }
