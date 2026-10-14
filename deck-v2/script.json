@@ -66,22 +66,6 @@
   },
   {
     "slide": 7,
-    "title": "How an OLED makes light",
-    "paras": [
-      "This creates a major problem for a conventional fluorescent OLED.",
-      "To understand why, we now need to think about how light is produced.",
-      "The lowest excited singlet state is usually called S one, and the singlet ground state is S zero.",
-      "If the molecule transitions from S one down to S zero, it can release its energy as a photon.",
-      "The photon energy is simply the difference between the two energy levels.",
-      "In equation form, h nu equals E excited minus E ground.",
-      "And because photon energy is also h c over lambda, the size of that energy gap ultimately determines the colour of the emitted light.",
-      "Large energy gaps correspond to higher-energy, shorter-wavelength light, towards blue.",
-      "Smaller energy gaps correspond to lower-energy, longer-wavelength light, towards red.",
-      "So the basic fluorescent process is: S one goes to S zero and emits a photon."
-    ]
-  },
-  {
-    "slide": 8,
     "title": "The spin lock",
     "paras": [
       "The problem is what happens to T one, the lowest triplet state.",
@@ -99,7 +83,7 @@
     ]
   },
   {
-    "slide": 9,
+    "slide": 8,
     "title": "The spin-statistics problem",
     "paras": [
       "So in a traditional fluorescent organic emitter, the twenty-five percent of excitons created as singlets can generate fluorescence efficiently, but the roughly seventy-five percent created as triplets are difficult to use.",
@@ -108,7 +92,7 @@
     ]
   },
   {
-    "slide": 10,
+    "slide": 9,
     "title": "The TADF idea",
     "paras": [
       "TADF stands for thermally activated delayed fluorescence.",
@@ -131,7 +115,7 @@
     ]
   },
   {
-    "slide": 11,
+    "slide": 10,
     "title": "Thermally activated",
     "paras": [
       "But there is an immediate difficulty.",
@@ -151,7 +135,7 @@
     ]
   },
   {
-    "slide": 12,
+    "slide": 11,
     "title": "Where the gap comes from: exchange",
     "paras": [
       "And now we arrive at the molecular-design physics.",
@@ -166,7 +150,7 @@
     ]
   },
   {
-    "slide": 13,
+    "slide": 12,
     "title": "Pull the clouds apart",
     "paras": [
       "This immediately gives chemists a molecular-design strategy.",
@@ -187,7 +171,7 @@
     ]
   },
   {
-    "slide": 14,
+    "slide": 13,
     "title": "The balancing act",
     "paras": [
       "But there is an important catch.",
@@ -203,7 +187,7 @@
     ]
   },
   {
-    "slide": 15,
+    "slide": 14,
     "title": "Spin-orbit coupling: blurring the boxes",
     "paras": [
       "Now there is another subtle point.",
@@ -222,21 +206,7 @@
     ]
   },
   {
-    "slide": 16,
-    "title": "Stepping stones: spin-vibronic coupling",
-    "paras": [
-      "So real TADF molecules use more subtle mechanisms.",
-      "Molecular vibrations can participate, and nearby electronic states can help mediate the transition. This is often described in terms of spin-vibronic coupling.",
-      "You can imagine RISC not necessarily as one enormous leap directly from T one into S one, but sometimes as finding a sequence of stepping stones involving molecular vibration and neighbouring excited states.",
-      "That is why saying, “small delta E S T equals good TADF,” is an oversimplification.",
-      "A better statement is: small delta E S T makes RISC energetically accessible, while spin-orbit and spin-vibronic coupling determine how efficiently the system can actually make the transition.",
-      "The RISC rate therefore depends both on the energy gap and on the coupling between the states.",
-      "Schematically, quantum mechanics tells us that a transition rate depends on something like the square of a coupling matrix element, multiplied by energetic and vibrational factors.",
-      "So two molecules could have exactly the same delta E S T and still have completely different RISC rates."
-    ]
-  },
-  {
-    "slide": 17,
+    "slide": 15,
     "title": "Why \"delayed\"?",
     "paras": [
       "Now we can finally explain the word delayed in thermally activated delayed fluorescence.",
@@ -259,7 +229,7 @@
     ]
   },
   {
-    "slide": 18,
+    "slide": 16,
     "title": "One hundred excitons",
     "paras": [
       "This leads to the major efficiency advantage.",
@@ -273,7 +243,7 @@
     ]
   },
   {
-    "slide": 19,
+    "slide": 17,
     "title": "Internal versus external efficiency",
     "paras": [
       "But that does not mean one hundred percent of the electrical energy comes out of the front of the screen as visible light.",
@@ -285,23 +255,7 @@
     ]
   },
   {
-    "slide": 20,
-    "title": "Losses and efficiency roll-off",
-    "paras": [
-      "There are also real loss mechanisms.",
-      "Triplet excitons can collide with one another.",
-      "Excitons can interact with charge carriers.",
-      "Energy can be lost non-radiatively as molecular vibration and heat.",
-      "At high electrical currents these processes become increasingly important.",
-      "This contributes to efficiency roll-off, where an OLED performs extremely efficiently at low brightness but becomes less efficient when driven harder.",
-      "Long-lived triplet populations are especially problematic because the longer an exciton remains around, the greater the chance that it encounters another excited state or charge carrier.",
-      "So making RISC fast is not only useful for getting light out quickly.",
-      "It can also reduce the concentration of triplets and suppress destructive interactions.",
-      "This is especially important for device stability."
-    ]
-  },
-  {
-    "slide": 21,
+    "slide": 18,
     "title": "The whole story",
     "paras": [
       "So now step back and look at the complete TADF story from beginning to end.",
@@ -324,35 +278,6 @@
       "Furthermore, a small energy gap by itself is not sufficient.",
       "There must also be effective coupling between singlet and triplet states, through mechanisms involving spin-orbit coupling, molecular vibrations and nearby excited states.",
       "If these ingredients are optimised, TADF can recover triplet excitons and allow nearly all electrically generated excitons to contribute to emission."
-    ]
-  },
-  {
-    "slide": 22,
-    "title": "Quantum engineering",
-    "paras": [
-      "And that is the central significance of TADF.",
-      "It is essentially a piece of quantum engineering.",
-      "We manipulate molecular orbitals to control an exchange interaction.",
-      "That controls the singlet-triplet energy splitting.",
-      "That controls the ability of thermal motion to drive reverse intersystem crossing.",
-      "That allows otherwise unusable triplet excitons to become singlets.",
-      "And that ultimately determines how efficiently electrical energy becomes visible light."
-    ]
-  },
-  {
-    "slide": 23,
-    "title": "One chain to remember",
-    "paras": [
-      "So if you remember only one chain from the entire topic, remember this:",
-      "Voltage creates electrons and holes.",
-      "Electrons and holes create excitons.",
-      "Exciton spin creates singlets and triplets.",
-      "The spin selection rule makes singlets easy to emit from and triplets difficult to emit from.",
-      "TADF makes the singlet-triplet gap small.",
-      "Thermal energy plus spin-state coupling drives RISC.",
-      "RISC converts triplets back into singlets.",
-      "And the singlets produce photons.",
-      "Everything else in TADF OLED physics is essentially about making each step faster, more efficient and more stable."
     ]
   }
 ]
