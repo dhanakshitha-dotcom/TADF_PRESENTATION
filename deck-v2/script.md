@@ -72,29 +72,7 @@ So approximately twenty-five percent singlets and seventy-five percent triplets.
 
 ▸ Randomly throw excitons at the four doors, and most of them end up in the triplet room.
 
-## Slide 7 — How an OLED makes light
-
-This creates a major problem for a conventional fluorescent OLED.
-
-To understand why, we now need to think about how light is produced.
-
-▸ The lowest excited singlet state is usually called S one, and the singlet ground state is S zero.
-
-▸ If the molecule transitions from S one down to S zero, it can release its energy as a photon.
-
-The photon energy is simply the difference between the two energy levels.
-
-▸ In equation form, h nu equals E excited minus E ground.
-
-▸ And because photon energy is also h c over lambda, the size of that energy gap ultimately determines the colour of the emitted light.
-
-▸ Large energy gaps correspond to higher-energy, shorter-wavelength light, towards blue.
-
-▸ Smaller energy gaps correspond to lower-energy, longer-wavelength light, towards red.
-
-▸ So the basic fluorescent process is: S one goes to S zero and emits a photon.
-
-## Slide 8 — The spin lock
+## Slide 7 — The spin lock
 
 The problem is what happens to T one, the lowest triplet state.
 
@@ -120,7 +98,7 @@ This is why we call T one to S zero spin-forbidden.
 
 ▸ Forbidden does not mean mathematically impossible. It means much less probable.
 
-## Slide 9 — The spin-statistics problem
+## Slide 8 — The spin-statistics problem
 
 ▸ So in a traditional fluorescent organic emitter, the twenty-five percent of excitons created as singlets can generate fluorescence efficiently, but the roughly seventy-five percent created as triplets are difficult to use.
 
@@ -128,7 +106,7 @@ That gives conventional fluorescent OLEDs a fundamental spin-statistical problem
 
 ▸ And this is exactly the problem that TADF attempts to solve.
 
-## Slide 10 — The TADF idea
+## Slide 9 — The TADF idea
 
 ▸ TADF stands for thermally activated delayed fluorescence.
 
@@ -164,7 +142,7 @@ A conventional fluorescent material leaves passengers stranded in the triplet lo
 
 ▸ Once the passengers return to S one, they can board the normal photon flight.
 
-## Slide 11 — Thermally activated
+## Slide 10 — Thermally activated
 
 But there is an immediate difficulty.
 
@@ -194,7 +172,7 @@ Now thermal motion can help the exciton cross it.
 
 ▸ So one of the central design requirements for a TADF molecule is: make the singlet-triplet energy gap small.
 
-## Slide 12 — Where the gap comes from: exchange
+## Slide 11 — Where the gap comes from: exchange
 
 And now we arrive at the molecular-design physics.
 
@@ -214,7 +192,7 @@ That creates an energy splitting related to the exchange integral.
 
 ▸ Small overlap means weaker exchange and therefore a smaller singlet-triplet splitting.
 
-## Slide 13 — Pull the clouds apart
+## Slide 12 — Pull the clouds apart
 
 This immediately gives chemists a molecular-design strategy.
 
@@ -246,7 +224,7 @@ The other represents the LUMO.
 
 The excited state often has significant charge-transfer character: excitation effectively moves electron density from the donor towards the acceptor.
 
-## Slide 14 — The balancing act
+## Slide 13 — The balancing act
 
 But there is an important catch.
 
@@ -268,7 +246,7 @@ If the houses are kilometres apart, the exchange problem disappears, but now com
 
 ▸ The ideal TADF structure puts them far enough apart to weaken exchange while still maintaining enough communication for efficient light emission.
 
-## Slide 15 — Spin-orbit coupling: blurring the boxes
+## Slide 14 — Spin-orbit coupling: blurring the boxes
 
 Now there is another subtle point.
 
@@ -296,25 +274,7 @@ TADF is attractive because it can achieve triplet harvesting using purely organi
 
 ▸ But ordinary light atoms such as carbon, nitrogen and hydrogen have relatively weak spin-orbit coupling.
 
-## Slide 16 — Stepping stones: spin-vibronic coupling
-
-So real TADF molecules use more subtle mechanisms.
-
-Molecular vibrations can participate, and nearby electronic states can help mediate the transition. This is often described in terms of spin-vibronic coupling.
-
-▸ You can imagine RISC not necessarily as one enormous leap directly from T one into S one, but sometimes as finding a sequence of stepping stones involving molecular vibration and neighbouring excited states.
-
-▸ That is why saying, “small delta E S T equals good TADF,” is an oversimplification.
-
-▸ A better statement is: small delta E S T makes RISC energetically accessible, while spin-orbit and spin-vibronic coupling determine how efficiently the system can actually make the transition.
-
-The RISC rate therefore depends both on the energy gap and on the coupling between the states.
-
-▸ Schematically, quantum mechanics tells us that a transition rate depends on something like the square of a coupling matrix element, multiplied by energetic and vibrational factors.
-
-▸ So two molecules could have exactly the same delta E S T and still have completely different RISC rates.
-
-## Slide 17 — Why "delayed"?
+## Slide 15 — Why "delayed"?
 
 Now we can finally explain the word delayed in thermally activated delayed fluorescence.
 
@@ -350,7 +310,7 @@ So a very useful mental picture is: prompt fluorescence is S one, photon.
 
 Or for electrically generated triplets: T one, wait, RISC to S one, then photon.
 
-## Slide 18 — One hundred excitons
+## Slide 16 — One hundred excitons
 
 This leads to the major efficiency advantage.
 
@@ -368,7 +328,7 @@ That means the internal quantum efficiency can, in principle, approach one hundr
 
 ▸ Internal quantum efficiency means: of the electron-hole pairs that form excitons inside the OLED, what fraction eventually produce photons?
 
-## Slide 19 — Internal versus external efficiency
+## Slide 17 — Internal versus external efficiency
 
 ▸ But that does not mean one hundred percent of the electrical energy comes out of the front of the screen as visible light.
 
@@ -382,73 +342,7 @@ External quantum efficiency asks how many photons actually escape the device per
 
 ▸ Even an emitter with nearly perfect exciton utilisation can therefore have a much lower external quantum efficiency.
 
-## Slide 20 — Losses and efficiency roll-off
-
-There are also real loss mechanisms.
-
-▸ Triplet excitons can collide with one another.
-
-Excitons can interact with charge carriers.
-
-Energy can be lost non-radiatively as molecular vibration and heat.
-
-▸ At high electrical currents these processes become increasingly important.
-
-▸ This contributes to efficiency roll-off, where an OLED performs extremely efficiently at low brightness but becomes less efficient when driven harder.
-
-▸ Long-lived triplet populations are especially problematic because the longer an exciton remains around, the greater the chance that it encounters another excited state or charge carrier.
-
-So making RISC fast is not only useful for getting light out quickly.
-
-▸ It can also reduce the concentration of triplets and suppress destructive interactions.
-
-This is especially important for device stability.
-
-## Slide 21 — The host matters
-
-The host material around the TADF emitter also matters.
-
-In many OLEDs, the emitting molecule is not simply deposited as a pure layer. It is dispersed as a guest inside a host material.
-
-You can imagine the host as the neighbourhood and the TADF molecule as a specialised light-producing house inside that neighbourhood.
-
-The host helps transport charge, controls how excitations move, prevents molecules from aggregating too strongly and can help confine triplet excitons to the emitter.
-
-Its excited-state energies therefore need to be chosen carefully.
-
-If the host has an inappropriate triplet energy, energy may escape from the TADF molecule into the host rather than being converted into useful light.
-
-So good OLED performance is not just about designing one clever molecule.
-
-It requires matching the emitter, host, charge-transport layers, electrodes and optical structure.
-
-## Slide 22 — Why blue is hard
-
-There are also colour-specific challenges.
-
-Remember that photon energy equals h c over lambda.
-
-Blue photons require more energy than red photons.
-
-Therefore blue OLED emitters operate using relatively high-energy excited states.
-
-That tends to make blue devices particularly difficult to stabilise.
-
-At the same time, molecular designers must maintain a small singlet-triplet gap, good oscillator strength, rapid RISC, good charge transport and chemical stability.
-
-These requirements can compete against one another.
-
-That is one reason efficient, stable blue OLED emission has historically been such an important materials challenge.
-
-## Slide 23 — Beyond twisted donor–acceptor molecules
-
-More modern approaches can go beyond the simple strongly twisted donor-acceptor design.
-
-For example, molecular structures can be engineered so that electron density is separated at the atomic scale while still retaining a relatively rigid structure and strong optical transition.
-
-The general goal remains the same: control the singlet and triplet wavefunctions so that you simultaneously obtain a small energy gap, good coupling and efficient fluorescence.
-
-## Slide 24 — The whole story
+## Slide 18 — The whole story
 
 So now step back and look at the complete TADF story from beginning to end.
 
@@ -489,42 +383,4 @@ Furthermore, a small energy gap by itself is not sufficient.
 There must also be effective coupling between singlet and triplet states, through mechanisms involving spin-orbit coupling, molecular vibrations and nearby excited states.
 
 If these ingredients are optimised, TADF can recover triplet excitons and allow nearly all electrically generated excitons to contribute to emission.
-
-## Slide 25 — Quantum engineering
-
-And that is the central significance of TADF.
-
-▸ It is essentially a piece of quantum engineering.
-
-▸ We manipulate molecular orbitals to control an exchange interaction.
-
-▸ That controls the singlet-triplet energy splitting.
-
-▸ That controls the ability of thermal motion to drive reverse intersystem crossing.
-
-▸ That allows otherwise unusable triplet excitons to become singlets.
-
-▸ And that ultimately determines how efficiently electrical energy becomes visible light.
-
-## Slide 26 — One chain to remember
-
-▸ So if you remember only one chain from the entire topic, remember this:
-
-▸ Voltage creates electrons and holes.
-
-▸ Electrons and holes create excitons.
-
-▸ Exciton spin creates singlets and triplets.
-
-▸ The spin selection rule makes singlets easy to emit from and triplets difficult to emit from.
-
-▸ TADF makes the singlet-triplet gap small.
-
-▸ Thermal energy plus spin-state coupling drives RISC.
-
-▸ RISC converts triplets back into singlets.
-
-▸ And the singlets produce photons.
-
-▸ Everything else in TADF OLED physics is essentially about making each step faster, more efficient and more stable.
 

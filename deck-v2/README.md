@@ -21,3 +21,7 @@ Type: Instrument Serif (display), Geist (text), Geist Mono (labels). Equations: 
 
 Timing (150 wpm): full script ≈ 22 min; core path ≈ 12.7 min of speech before simulation time.
 All simulations are illustrative models; none is a fit to a molecule or device.
+
+## Offline single-file player
+`node tools/build.mjs && node tools/build-offline.mjs` writes `outputs/2026-10-07_tadf-presentation-offline_v2.html` (fonts, equations, simulations, notes embedded; no network).
+Keys: → / Space next, ← previous, Home / End, B backup, N notes, C core-only notes, F fullscreen.
